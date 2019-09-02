@@ -1,46 +1,37 @@
 .header {
-  height: 140px;
+  position: fixed;
+  height: 80px;
   width: 100%;
-  padding: 10px 60px;
+  padding: 10px 40px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  background-color: white;
+
+  &.fade-in {
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+  }
+
+  &.fade-out {
+    opacity: 1;
+    animation: fade-out 0.3s forwards;
+  }
 
   .logo-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     height: 100%;
     width: 100px;
-    padding: 0 25px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    overflow: hidden;
 
     svg {
       fill: red;
-    }
-  }
-
-  .options {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    &:hover .option {
-      color: gray;
-    }
-
-    .option {
-      font-size: 18px;
-      font-weight: 600;
-      padding: 10px 15px;
-      transition: all 200ms ease-in-out;
-      cursor: pointer;
-
-      &:hover {
-        color: black;
-      }
     }
   }
 }

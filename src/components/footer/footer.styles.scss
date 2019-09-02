@@ -1,32 +1,49 @@
 .footer {
 	margin-top: 60px;
-	height: 160px;
+	height: auto;
 	width: 100%;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
-	background-color: #f6f6f6;
+	background-color: #252525;
 
-	.icon-set {
-		width: 120px;
-		height: auto;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
+	.footer-content {
+		padding: 100px;
 
-		&:hover .icon {
-			fill: gray;
+		.options {
+			margin: 20px 0;
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+
+			.option {
+				color: white;
+				margin: 5px 0;
+			}
 		}
 
-		.icon {
-			width: 24px;
-			height: 24px;
-			transition: all 200ms ease-in-out;
-			cursor: pointer;
+		.icon-set {
+			width: auto;
+			height: auto;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
 
-			&:hover {
-				fill: black;
+			&:hover .icon {
+				fill: gray;
+			}
+
+			.icon {
+				width: 24px;
+				height: 24px;
+				margin-right: 20px;
+				transition: all 200ms ease-in-out;
+				fill: white;
+				cursor: pointer;
+
+				&:hover {
+					fill: black;
+				}
 			}
 		}
 	}

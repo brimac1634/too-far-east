@@ -1,0 +1,13 @@
+.home {
+	height: 100vh;
+	background: grey;
+
+	.menu-button-header {
+		height: 80px;
+		width: 100%;
+		padding: 10px 40px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+}
