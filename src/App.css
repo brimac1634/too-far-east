@@ -6,13 +6,13 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Abril Fatface', serif;
-	color: #094438;
+	color: #252525;
 }
 
 a {
 	font-family: 'Roboto', sans-serif;
     text-decoration: none;
-    color: #3f3f3f;
+    color: #252525;
 }
 
 * {
