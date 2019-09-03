@@ -31,7 +31,10 @@ class Header extends Component {
 				<Link className='logo-container' to={'/'}>
 					<Logo />
 				</Link>
-				<CustomButton inverted>
+				<CustomButton 
+					href='https://toofareastbarber.resurva.com/book' 
+					inverted
+				>
 					Book Now
 				</CustomButton>
 			</div>

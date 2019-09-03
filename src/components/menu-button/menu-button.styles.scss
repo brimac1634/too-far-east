@@ -1,47 +1,54 @@
-.menu-button {
-    cursor: pointer;
-    width: 28px;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.menu {
+  display: flex;
+  align-items: center;
+  height: 50%;
+  width: auto;
 
-    .menu-lines {
-      position: relative;
-      content: "";
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: #252525;
-      padding: 0;
+  .menu-button {
+      cursor: pointer;
+      width: 28px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      &:before,
-      &:after {
-        position: absolute;
+      .menu-lines {
+        position: relative;
         content: "";
         display: block;
-        background: #252525;
         width: 100%;
         height: 2px;
-      }
-      
-      &:before {
-        left: 0;
-        top: -10px;
-      }
-
-      &:after {
-        left: 0;
-        bottom: -10px;
-      }
-
-      &.inverted {
-        background: white;
+        background: #252525;
+        padding: 0;
 
         &:before,
         &:after {
+          position: absolute;
+          content: "";
+          display: block;
+          background: #252525;
+          width: 100%;
+          height: 2px;
+        }
+        
+        &:before {
+          left: 0;
+          top: -10px;
+        }
+
+        &:after {
+          left: 0;
+          bottom: -10px;
+        }
+
+        &.inverted {
           background: white;
+
+          &:before,
+          &:after {
+            background: white;
+          }
         }
       }
-    }
+  }
 }

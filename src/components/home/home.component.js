@@ -9,9 +9,7 @@ import './home.styles.scss';
 const Home = () => (
 	<div className='home'>
 		<div className='menu-button-header'>
-			<div className='menu-button'>
-				<MenuButton inverted />
-			</div>
+			<MenuButton inverted />
 		</div>
 		<div className='center'>
 			<div className='logo-container'>

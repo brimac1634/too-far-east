@@ -9,7 +9,7 @@ import './footer.styles.scss';
 const Footer = ({ handleSection }) => (
 	<div className='footer'>
 		<div className='footer-content'>
-			<CustomButton>
+			<CustomButton href='https://toofareastbarber.resurva.com/book'>
 				Book Now
 			</CustomButton>
 			<div className='options'>

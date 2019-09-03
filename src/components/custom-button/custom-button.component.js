@@ -1,13 +1,23 @@
 import React from 'react';
 import './custom-button.styles.scss';
 
-const CustomButton = ({ children, isGoogleSignIn, color, inverted, ...otherProps }) => (
+const CustomButton = ({ children, href, color, inverted, ...otherProps }) => (
 	<button 
-		className={`custom-button ${inverted ? 'inverted' : ''} ${isGoogleSignIn ? 'google-sign-in' : ''}`} 
+		className={`custom-button ${inverted ? 'inverted' : ''}`} 
 		style={{backgroundColor: color || null}}
 		{...otherProps} 
 	>
 		{children}
+		{
+			href &&
+			<a 
+				className='link'
+				href='https://toofareastbarber.resurva.com/book' 
+				target='_blank' 
+				rel='noopener noreferrer'
+			>
+			</a>
+		}
 	</button>
 )
 

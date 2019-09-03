@@ -11,26 +11,17 @@ import './App.css';
 
 
 class App extends Component {
-    state = {
-        section: 'Home'
-    }
-
-    handleSection = (section) => this.setState({ section })
 
     render() {
-        const { section } = this.state;
         return (
         	<div>
                 <Header />
                 <Switch>
-                    <Route exact path='/' render={()=> (
-                            <HomePage section={section}/>
-                        )} 
-                    />
+                    <Route exact path='/' component={HomePage} />
                     <Route path='/updates' component={UpdatesPage} />
                     <Redirect to='/' />
                 </Switch>
-        		<Footer handleSection={this.handleSection} />
+        		<Footer />
         	</div>
         )
     }

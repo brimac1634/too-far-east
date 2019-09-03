@@ -1,0 +1,56 @@
+.options {
+	margin: 0 0 0 20px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	.option {
+		color: black;
+		margin: 0 10px;
+		font-family: 'Lexend Deca', sans-serif;	
+
+		&:hover {
+			color: grey;
+		}
+
+		&.inverted {
+			color: white;
+
+			&:hover {
+				color: black;
+			}
+		}
+
+		&.show {
+			opacity: 1;
+			animation: slide-in 500ms ease-in-out;
+		}
+
+		&.hide {
+			opacity: 0;
+			animation: slide-out 500ms ease-in-out;
+		}
+
+		@keyframes slide-in {
+          0% {
+          	opacity: 0;
+            transform: translateX(-10px);
+          }
+          100% {
+          	opacity: 1;
+            transform: none;
+          }
+        }
+
+        @keyframes slide-out {
+          0% {
+          	opacity: 1;
+            transform: none;
+          }
+          100% {
+          	opacity: 0;
+            transform: translateX(-10px);
+          }
+        }
+	}
+}
