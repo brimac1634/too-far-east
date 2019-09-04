@@ -11,17 +11,22 @@ const mapDisptachToProps = dispatch => ({
 	scrollToSection: section => dispatch(scrollToSection(section))
 })
 
-const NavOptions = ({ inverted, show, scrollToSection }) => {
+const NavOptions = ({ inverted, show, vertical, scrollToSection }) => {
+
+	const handleScroll = section => {
+		scrollToSection(section)
+		setTimeout(()=>scrollToSection(null), 1000)
+	}
 
 	return (
-		<div className='options'>
+		<div className={`options ${vertical ? 'vertical' : null}`}>
 			{
 				navOptions.map(({title, section}, i) => {
 					return (
 						<span 
 							className={`option ${inverted ? 'inverted' : null} ${show ? 'show' : 'hide'}`} 
 							key={i}
-							onClick={()=>scrollToSection(section)}
+							onClick={()=>handleScroll(section)}
 						>
 							{title}
 						</span>

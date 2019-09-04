@@ -1,5 +1,6 @@
 import React from 'react';
 
+import NavOptions from '../nav-options/nav-options.component';
 import CustomButton from '../custom-button/custom-button.component';
 import { ReactComponent as InstaIcon } from '../../assets/instagram.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg'
@@ -12,38 +13,7 @@ const Footer = ({ handleSection }) => (
 			<CustomButton href='https://toofareastbarber.resurva.com/book'>
 				Book Now
 			</CustomButton>
-			<div className='options'>
-				<span 
-					className='option' 
-					onClick={()=>handleSection('Home')}
-				>
-					home
-				</span>
-				<span 
-					className='option' 
-					onClick={()=>handleSection('OurStory')}
-				>
-					our story
-				</span>
-				<span 
-					className='option' 
-					onClick={()=>handleSection('Gallery')}
-				>
-					gallery
-				</span>
-				<span 
-					className='option' 
-					onClick={()=>handleSection('Contact')}
-				>
-					contact us
-				</span>
-				<span 
-					className='option' 
-					onClick={()=>handleSection('Updates')}
-				>
-					updates
-				</span>
-			</div>
+			<NavOptions vertical inverted show />
 			<div className='icon-set'>
 				<a 
 					className='icon'

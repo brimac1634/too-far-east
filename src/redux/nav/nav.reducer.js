@@ -1,7 +1,7 @@
 import NavActionTypes from './nav.types';
 
 const INITIAL_STATE = {
-	section: 'Home'
+	section: null
 }
 
 const navReducer = (state = INITIAL_STATE, action) => {

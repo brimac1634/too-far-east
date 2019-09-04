@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
 import Home from '../../components/home/home.component';
 import Updates from '../../components/updates/updates.component';
@@ -8,10 +7,9 @@ import Contact from '../../components/contact/contact.component';
 import OurStory from '../../components/our-story/our-story.component';
 import Gallery from '../../components/gallery/gallery.component';
 
-import { selectSection } from '../../redux/nav/nav.selectors';
 
-const mapStateToProps = createStructuredSelector({
-	section: selectSection
+const mapStateToProps = state => ({
+	section: state.nav.section
 })
 
 class HomePage extends Component {

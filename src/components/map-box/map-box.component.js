@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import ReactMapGL, {Marker} from 'react-map-gl';
-import GoogleMapReact, { Marker } from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 
 import { ReactComponent as PinIcon } from '../../assets/pin.svg'
 import './map-box.styles.scss';
@@ -144,15 +143,18 @@ class MapBox extends Component {
 			]
 	    };
 
+	    console.log(process.env.GOOGLE_MAP_API)
+
 		return (
 		  <div style={{ height: '400px', width: '700px' }}>
 		    <GoogleMapReact
 		    	options={mapOptions}
-				bootstrapURLKeys={{ key: }}
+				bootstrapURLKeys={{ key: process.env.GOOGLE_MAP_API }}
 				defaultCenter={this.props.center}
 				defaultZoom={this.props.zoom}
 		    >
-				<Marker
+				<PinIcon
+					style={{width: '32px', height: '32px'}}
 					lat={22.2818}
 					lng={114.1557}
 				/>

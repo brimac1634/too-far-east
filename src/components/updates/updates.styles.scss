@@ -1,0 +1,15 @@
+.updates {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 60px;
+
+	.update-list {
+		width: 100%;
+		overflow-x: scroll;
+		-webkit-overflow-scrolling: touch;
+		display: flex;
+		align-items: center;
+	}
+}
