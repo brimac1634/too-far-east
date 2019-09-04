@@ -1,10 +1,13 @@
 import React from 'react';
 
-// import './updates.styles.scss';
+import shanghai from '../../assets/shanghai.jpg';
+import barber from '../../assets/barber.jpg';
+import './gallery.styles.scss';
 
 const Gallery = () => (
 	<div className='gallery'>
-		Hi
+		<img className='image' src={shanghai} alt='shanghai' />
+		<img className='image' src={barber} alt='barber' />
 	</div>
 )
 

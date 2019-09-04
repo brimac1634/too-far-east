@@ -1,0 +1,11 @@
+.gallery {
+	height: 100vh;
+	width: auto;
+	overflow-x: auto;
+	display: flex;
+
+	.image {
+		width: 100vw;
+		height: auto;
+	}
+}

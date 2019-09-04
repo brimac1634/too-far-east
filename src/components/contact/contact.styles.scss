@@ -1,0 +1,31 @@
+.contact {
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	padding: 60px;
+
+	.details {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		.social {
+			margin-top: 20px;
+		}
+
+		.row {
+			display: flex;
+			align-items: center;
+
+			> * {
+				font-family: 'Amiri', serif;
+			}
+
+			svg {
+				width: 18px;
+				height: 18px;
+				margin-right: 16px;
+			}
+		}
+	}
+}
