@@ -1,4 +1,5 @@
 .updates {
+	position: relative;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -7,8 +8,7 @@
 
 	.update-list {
 		width: 100%;
-		overflow-x: scroll;
-		-webkit-overflow-scrolling: touch;
+		overflow-x: hidden;
 		display: flex;
 		align-items: center;
 	}

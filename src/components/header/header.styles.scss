@@ -7,6 +7,16 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  z-index: 5;
+  transition: all 300ms ease-in-out;
+
+  &.inverted {
+    background-color: transparent;
+
+    svg {
+      fill: white;
+    }
+  }
 
   &.fade-in {
     opacity: 0;
@@ -31,7 +41,7 @@
     overflow: hidden;
 
     svg {
-      fill: red;
+      fill: black;
     }
   }
 }

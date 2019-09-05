@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Arrows from '../arrows/arrows.component';
 import UpdatesItem from '../updates-item/updates-item.component';
 import updateData from './updates.data';
 
@@ -11,10 +12,14 @@ const Updates = () => (
 		<div className='update-list'>
 			{
 				updateData.map(({ ...props }, i) => (
-					<UpdatesItem {...props} />
+					<UpdatesItem key={i} {...props} />
 				))
 			}
 		</div>
+		<Arrows
+			
+			showNext
+		/>
 	</div>
 )
 

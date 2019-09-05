@@ -1,7 +1,73 @@
 .gallery {
+	position: relative;
 	height: 100vh;
 	width: 100%;
-	overflow-x: scroll;
-	-webkit-overflow-scrolling: touch;
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+
+	.image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: cover;
+
+		&.fade-out {
+			animation: fade-out 500ms forwards;
+		}
+	}
+
+	.indicators {
+		position: absolute;
+		bottom: 40px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		align-items: center;
+
+		.indicator {
+			content: '';
+			display: block;
+			width: 15px;
+			height: 15px;
+			border: solid 2px white;
+			border-radius: 50%;
+			margin: 0 10px;
+			cursor: pointer;
+			transition: all 300ms ease-in-out;
+
+			&.current {
+				background-color: white;
+			}
+		}
+	}
+
+	.play,
+	.pause {
+		position: absolute;
+		left: 40px;
+		bottom: 40px;
+		border-style: solid;
+		cursor: pointer;
+		transition: all 300ms ease-in-out;
+	}
+
+	.play {
+		width: 20px;
+		height: 10px;
+		border-width: 10px 0px 10px 20px;
+		border-color: transparent transparent transparent white;
+	}
+
+	.pause {
+		width: 20px;
+		height: 20px;
+		border-width: 0px 0px 0px 20px;
+		border-color: white;
+		border-style: double;
+	}
 }

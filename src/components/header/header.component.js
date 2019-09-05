@@ -9,7 +9,8 @@ import './header.styles.scss';
 
 class Header extends Component {
 	state = {
-		showHeader: false
+		showHeader: false,
+		inverted: false
 	}
 
 	componentDidMount() {
@@ -17,23 +18,27 @@ class Header extends Component {
     }
 
     checkWindowScroll = () => {
-        this.setState({ showHeader: window.pageYOffset >= window.innerHeight })
+    	this.setState({ 
+    		showHeader: window.pageYOffset >= window.innerHeight,
+    		inverted: window.pageYOffset >= window.innerHeight * 2 - 40 && window.pageYOffset <= window.innerHeight * 3
+    	})
     }
 
     render() {
-    	const { showHeader } = this.state;
+    	const { showHeader, inverted } = this.state;
 
     	const fade = showHeader ? 'fade-in' : 'fade-out'
+    	const invert = inverted ? 'inverted' : null
 
     	return (
-    		<div className={`header ${fade}`}>
-				<MenuButton />
+    		<div className={`header ${fade} ${invert}`}>
+				<MenuButton inverted={inverted} />
 				<Link className='logo-container' to={'/'}>
 					<Logo />
 				</Link>
 				<CustomButton 
 					href='https://toofareastbarber.resurva.com/book' 
-					inverted
+					inverted={!inverted}
 				>
 					Book Now
 				</CustomButton>

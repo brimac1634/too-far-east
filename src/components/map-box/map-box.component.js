@@ -1,167 +1,43 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import ReactMapGL, {Marker} from 'react-map-gl';
 
 import { ReactComponent as PinIcon } from '../../assets/pin.svg'
+
 import './map-box.styles.scss';
 
 class MapBox extends Component {
-	static defaultProps = {
-	center: {
-	  lat: 22.281622,
-	  lng: 114.155809
-	},
-	zoom: 18
-	};
+	state = {
+	    viewport: {
+	        width: 800,
+	        height: 350,
+	        latitude: 22.281622,
+	        longitude: 114.155809,
+	        zoom: 17
+	    }
+    };
 
-	render() {
-
-		const mapOptions = {
-	        styles: [
-			    {
-			        "featureType": "administrative",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "saturation": "-100"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "administrative.province",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "visibility": "off"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "landscape",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "saturation": -100
-			            },
-			            {
-			                "lightness": 65
-			            },
-			            {
-			                "visibility": "on"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "poi",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "saturation": -100
-			            },
-			            {
-			                "lightness": "50"
-			            },
-			            {
-			                "visibility": "simplified"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "road",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "saturation": "-100"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "road.highway",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "visibility": "simplified"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "road.arterial",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "lightness": "30"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "road.local",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "lightness": "40"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "transit",
-			        "elementType": "all",
-			        "stylers": [
-			            {
-			                "saturation": -100
-			            },
-			            {
-			                "visibility": "simplified"
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "water",
-			        "elementType": "geometry",
-			        "stylers": [
-			            {
-			                "hue": "#ffff00"
-			            },
-			            {
-			                "lightness": -25
-			            },
-			            {
-			                "saturation": -97
-			            }
-			        ]
-			    },
-			    {
-			        "featureType": "water",
-			        "elementType": "labels",
-			        "stylers": [
-			            {
-			                "lightness": -25
-			            },
-			            {
-			                "saturation": -100
-			            }
-			        ]
-			    }
-			]
-	    };
-
-	    console.log(process.env.GOOGLE_MAP_API)
-
-		return (
-		  <div style={{ height: '400px', width: '700px' }}>
-		    <GoogleMapReact
-		    	options={mapOptions}
-				bootstrapURLKeys={{ key: process.env.GOOGLE_MAP_API }}
-				defaultCenter={this.props.center}
-				defaultZoom={this.props.zoom}
-		    >
-				<PinIcon
-					style={{width: '32px', height: '32px'}}
-					lat={22.2818}
-					lng={114.1557}
-				/>
-		    </GoogleMapReact>
-		  </div>
-		);
-	}
+    render() {
+    	const { viewport } = this.state;
+    	return (
+    		<div className='map-box'>
+				<ReactMapGL
+				    { ...viewport }
+				    mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
+				    onViewportChange={(viewport) => this.setState({viewport})}
+				>
+					<Marker 
+						latitude={22.281622}
+						longitude={114.155809} 
+						offsetTop={-10} 
+					>
+						<div className='tick-container'>
+							<PinIcon />
+						</div>
+					</Marker>
+				</ReactMapGL>
+			</div>
+    	)
+    }
 }
 
 export default MapBox;
