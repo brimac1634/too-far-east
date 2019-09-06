@@ -12,7 +12,7 @@ import './contact.styles.scss';
 
 const Contact = () => (
 	<div className='contact'>
-		<div className='details'>
+		<div className='heading'>
 			<h1>Contact Us</h1>
 			<div className='row'>
 				<PinIcon />
@@ -20,47 +20,51 @@ const Contact = () => (
 					Unit 15C, 4/F, 15 Wellington Street, Central, Hong Kong
 				</span>
 			</div>
-			<div className='social'>
-				<div className='row'>
-					<MailIcon />
-					<a 
-						href='mailto:info@toofareastbarber.com' 
-						target='_blank' 
-						rel='noopener noreferrer'
-					>
-						info@toofareastbarber.com
-					</a>
-				</div>
-				<div className='row'>
-					<PhoneIcon />
-					<a href='tel:+852-9337-9868'>+852-9337-9868</a>
-				</div>
-				<div className='row'>
-					<FacebookIcon />
-					<a 
-						className='icon'
-						href='https://www.facebook.com/toofareastbarber/' 
-						target='_blank' 
-						rel='noopener noreferrer'
-					>
-						toofareastbarber
-					</a>
-				</div>
-				<div className='row'>
-					<InstaIcon />
-					<a 
-						className='icon'
-						href='https://www.instagram.com/toofareastbarber/' 
-						target='_blank' 
-						rel='noopener noreferrer'
-					>
-						toofareastbarber
-					</a>
+		</div>
+		<div className='bottom'>
+			<div className='details'>
+				<div className='social'>
+					<div className='row'>
+						<MailIcon />
+						<a 
+							href='mailto:info@toofareastbarber.com' 
+							target='_blank' 
+							rel='noopener noreferrer'
+						>
+							info@toofareastbarber.com
+						</a>
+					</div>
+					<div className='row'>
+						<PhoneIcon />
+						<a href='tel:+852-9337-9868'>+852-9337-9868</a>
+					</div>
+					<div className='row'>
+						<FacebookIcon />
+						<a 
+							className='icon'
+							href='https://www.facebook.com/toofareastbarber/' 
+							target='_blank' 
+							rel='noopener noreferrer'
+						>
+							toofareastbarber
+						</a>
+					</div>
+					<div className='row'>
+						<InstaIcon />
+						<a 
+							className='icon'
+							href='https://www.instagram.com/toofareastbarber/' 
+							target='_blank' 
+							rel='noopener noreferrer'
+						>
+							toofareastbarber
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div className='map'>
-			<MapBox />
+			<div className='map'>
+				<MapBox />
+			</div>
 		</div>
 	</div>
 )

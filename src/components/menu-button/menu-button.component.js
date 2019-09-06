@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
-import NavOptions from '../nav-options/nav-options.component';
+import { toggleMenu } from '../../redux/menu/menu.actions';
 
 import './menu-button.styles.scss'
 
-class MenuButton extends Component {
-	state = {
-		showMenu: false
-	}
+const mapStateToProps = state => ({
+	showMenu: state.menu.showMenu
+})
 
-	render() {
-		const { inverted } = this.props;
-		const { showMenu } = this.state;
-		return (
-			<div 
-				className='menu'
-				onClick={()=>this.setState({ showMenu: !showMenu})}
-			>
-				<div className='menu-button' >
-					<div className={`menu-lines ${inverted ? 'inverted' : null}`} />
-				</div>
-				<NavOptions inverted={inverted} show={showMenu} />
-			</div>
-		)
-	}
-}
+const mapDispatchToProps = dispatch => ({
+	toggleMenu: showMenu => dispatch(toggleMenu(showMenu))
+})
 
-export default MenuButton;
+const MenuButton = ({ showMenu, toggleMenu, inverted}) => (
+	<div 
+		className={`menu ${showMenu ? 'hide' : null}`}
+		onClick={()=>toggleMenu(true)}
+	>
+		<div className='menu-button' >
+			<div className={`menu-lines ${inverted ? 'inverted' : null}`} />
+		</div>
+	</div>
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuButton);

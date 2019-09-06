@@ -14,7 +14,7 @@ const UpdatesItem = ({ title, image, date, details}) => (
 			<div className='button'>
 				{
 					details.length > 100 &&
-					<CustomButton inverted>SEE MORE</CustomButton>
+					<CustomButton inverted padding='0 15px'>SEE MORE</CustomButton>
 				}
 			</div>
 		</div>

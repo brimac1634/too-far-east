@@ -8,11 +8,11 @@ import './map-box.styles.scss';
 class MapBox extends Component {
 	state = {
 	    viewport: {
-	        width: 800,
-	        height: 350,
+	        width: 900,
+	        height: 380,
 	        latitude: 22.281622,
 	        longitude: 114.155809,
-	        zoom: 17
+	        zoom: 15
 	    }
     };
 
@@ -26,12 +26,13 @@ class MapBox extends Component {
 				    onViewportChange={(viewport) => this.setState({viewport})}
 				>
 					<Marker 
-						latitude={22.281622}
-						longitude={114.155809} 
-						offsetTop={-10} 
+						latitude={22.28153}
+						longitude={114.15585} 
+						offsetLeft={-20} 
+						offsetTop={-40} 
 					>
 						<div className='tick-container'>
-							<PinIcon />
+							<PinIcon fill='#f54545' />
 						</div>
 					</Marker>
 				</ReactMapGL>

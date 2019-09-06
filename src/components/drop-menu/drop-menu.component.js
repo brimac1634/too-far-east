@@ -1,18 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import NavOptions from '../nav-options/nav-options.component';
-import CustomButton from '../custom-button/custom-button.component';
 import { ReactComponent as InstaIcon } from '../../assets/instagram.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg'
 
-import './footer.styles.scss';
+import { toggleMenu } from '../../redux/menu/menu.actions';
 
-const Footer = ({ handleSection }) => (
-	<div className='footer'>
-		<div className='footer-content'>
-			<CustomButton href='https://toofareastbarber.resurva.com/book'>
-				Book Now
-			</CustomButton>
+import './drop-menu.styles.scss';
+
+const mapStateToProps = state => ({
+	showMenu: state.menu.showMenu
+})
+
+const mapDispatchToProps = dispatch => ({
+	toggleMenu: showMenu => dispatch(toggleMenu(showMenu))
+})
+
+const DropMenu = ({ showMenu, toggleMenu }) => (
+	<div className={`drop-menu ${showMenu ? 'show' : 'hide'}`}>
+		<div className='drop-menu-content'>
 			<NavOptions vertical inverted show />
 			<div className='icon-set'>
 				<a 
@@ -32,8 +39,11 @@ const Footer = ({ handleSection }) => (
 					<FacebookIcon />
 				</a>
 			</div>
+			<div className='close-container'>
+				<div className='close' onClick={()=>toggleMenu(false)} />
+			</div>
 		</div>
 	</div>
 )
 
-export default Footer;
+export default connect(mapStateToProps, mapDispatchToProps)(DropMenu);

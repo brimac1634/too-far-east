@@ -17,7 +17,7 @@ const Updates = () => (
 			}
 		</div>
 		<Arrows
-			
+			isFirst
 			showNext
 		/>
 	</div>

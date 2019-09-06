@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 // import MediaQuery from 'react-responsive';
 
 import Header from './components/header/header.component';
-import Footer from './components/footer/footer.component';
+import DropMenu from './components/drop-menu/drop-menu.component';
 import HomePage from './pages/homepage/homepage.component';
 import UpdatesPage from './pages/updates-page/updates-page.component';
 
@@ -21,7 +21,7 @@ class App extends Component {
                     <Route path='/updates' component={UpdatesPage} />
                     <Redirect to='/' />
                 </Switch>
-        		<Footer />
+                <DropMenu />
         	</div>
         )
     }

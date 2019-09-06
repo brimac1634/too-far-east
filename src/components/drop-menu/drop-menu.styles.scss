@@ -1,0 +1,103 @@
+.drop-menu {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	height: 100%;
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: black;
+	opacity: 0.78;
+	z-index: 10;
+	transform: translateY(-100%);
+
+	&.show {
+		animation: drop-in 0.5s forwards;
+	}
+
+	&.hide {
+		animation: drop-out 0.5s forwards;
+	}
+
+	@keyframes drop-in {
+	  0% {
+	    transform: translateY(-100%);
+	  }
+	  100% {
+	    transform: none;
+	  }
+	}
+
+	@keyframes drop-out {
+	  0% {
+	    transform: none;
+	  }
+	  100% {
+	    transform: translateY(-100%);
+	  }
+	}
+
+	.close-container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40px;
+		height: 40px;
+		margin: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+
+		.close {
+			&:after,
+			&:before {
+				content: '';
+				display: block;
+				background: white;
+				height: 2px;
+				width: 18px;
+			}
+
+			&:after {
+				transform: rotate(45deg) translateY(-1px);
+			}
+
+			&:before {
+				transform: rotate(-45deg) translate(-1px, 1px);
+			}
+		}
+	}
+	
+
+	.drop-menu-content {
+		padding: 0 80px;
+
+		.icon-set {
+			width: auto;
+			height: auto;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			&:hover .icon {
+				fill: gray;
+			}
+
+			.icon {
+				width: 24px;
+				height: 24px;
+				margin-right: 20px;
+				transition: all 200ms ease-in-out;
+				fill: white;
+				cursor: pointer;
+
+				&:hover {
+					fill: white;
+				}
+			}
+		}
+	}
+}

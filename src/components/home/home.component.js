@@ -22,9 +22,7 @@ const Home = () => (
 			</CustomButton>
 		</div>
 		<div className='scroll-message'>
-			<span className='bob'>&#8595;</span>
 			<span>scroll down for more</span>
-			<span className='bob'>&#8595;</span>
 		</div>
 	</div>
 )

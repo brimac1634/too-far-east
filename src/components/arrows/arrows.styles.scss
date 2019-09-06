@@ -9,14 +9,16 @@
 	align-items: center;
 
 	.button {
-		width: 100px;
-		height: 100px;
+		width: auto;
+		height: 80px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		z-index: 1;
 		cursor: pointer;
 		transition: all 300ms ease-in-out;
+		background: black;
+		padding: 10px 20px;
 
 		&.hide-back {
 			transform: translateX(-200px);
@@ -28,8 +30,8 @@
 
 		.left,
 		.right {
-			width: 60%; 
-			height: 60%;
+			width: 30px; 
+			height: 30px;
 			transition: all 300ms ease-in-out;
 			box-shadow: -3px 3px 0 white;
 		}
@@ -40,6 +42,18 @@
 
 		.right {
 			transform: translateX(-10px) rotate(225deg);
+		}
+
+		.more {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			text-transform: uppercase;
+			letter-spacing: 6px;
+			padding: 0 10px;
+			color: white;
+			font-family: 'Lexend Deca', sans-serif;
+			line-height: 24px;
 		}
 	}
 }
