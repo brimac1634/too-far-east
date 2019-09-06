@@ -22,16 +22,16 @@
 
   &:hover {
     background-color: white;
-    color: #252525;
+    color: black;
   }
 
   &.inverted {
-    border: 2px solid #252525;
+    border: 2px solid black;
     background-color: transparent;
-    color: #252525;
+    color: black;
 
     &:hover {
-      background-color: #252525;
+      background-color: black;
       color: white;
     }
   }

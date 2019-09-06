@@ -8,14 +8,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Lexend Deca', sans-serif;
   letter-spacing: 3.2px;
-	color: #252525;
+	color: black;
   text-transform: uppercase;
 }
 
 a {
   	font-family: 'Lexend Deca', sans-serif;
     text-decoration: none;
-    color: #252525;
+    color: black;
 }
 
 * {

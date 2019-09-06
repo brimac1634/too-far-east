@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Perspective from '../perspective/perspective.component';
 import CustomButton from '../custom-button/custom-button.component';
 import MenuButton from '../menu-button/menu-button.component';
 import { ReactComponent as Logo } from '../../assets/TFE_white_logo.svg'
@@ -10,7 +9,7 @@ import './home.styles.scss';
 
 const Home = () => (
 	<div className='home'>
-		<Perspective src={homeImage}/>
+		<div className='hero' style={{backgroundImage: `url(${homeImage})`}} />
 		<div className='menu-button-header'>
 			<MenuButton inverted />
 		</div>
