@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 import Arrows from '../arrows/arrows.component';
 
 import shanghai from '../../assets/shanghai.jpg';
-import barber from '../../assets/barber.jpg';
 import './gallery.styles.scss';
 
 class Gallery extends Component {
 	state = {
-		images: [shanghai, barber, shanghai, shanghai],
+		images: [shanghai, shanghai, shanghai],
 		currentImage: 0,
 		nextImage: 1,
 		isChanging: false,

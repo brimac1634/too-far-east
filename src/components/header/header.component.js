@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import MenuButton from '../menu-button/menu-button.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { ReactComponent as Logo } from '../../assets/TFE_white_logo.svg'
 
 import './header.styles.scss';
 
