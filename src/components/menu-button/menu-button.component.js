@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
 
 const MenuButton = ({ showMenu, toggleMenu, inverted}) => (
 	<div 
-		className={`menu ${showMenu ? 'hide' : null}`}
+		className={`menu ${showMenu ? 'close' : null}`}
 		onClick={()=>toggleMenu(!showMenu)}
 	>
 		<div className='menu-button' >

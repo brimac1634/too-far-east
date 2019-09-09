@@ -6,7 +6,8 @@
   z-index: 11;
   transition: all 300ms ease-in-out;
 
-  &.hide {
+  &.close {
+    position: fixed;
     transform: translateX(320px);
 
     .menu-lines {

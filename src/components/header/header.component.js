@@ -41,12 +41,14 @@ class Header extends Component {
 						: 	<BlackLogo />
 					}
 				</Link>
-				<CustomButton 
-					href='https://toofareastbarber.resurva.com/book' 
-					inverted={!inverted}
-				>
-					Book Now
-				</CustomButton>
+				<div className='book-button'>
+					<CustomButton 
+						href='https://toofareastbarber.resurva.com/book' 
+						inverted={!inverted}
+					>
+						Book Now
+					</CustomButton>
+				</div>
 			</div>
     	)
     }
