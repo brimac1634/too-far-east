@@ -3,8 +3,7 @@
   min-width: 165px;
   width: auto;
   height: 40px;
-  letter-spacing: 0.5px;
-  line-height: 38px;
+  line-height: 100%;
   padding: 0 35px;
   font-size: 18px;
   background-color: transparent;
@@ -19,6 +18,22 @@
   display: flex;
   justify-content: center;
   transition: all 200ms ease-in-out;
+
+  &.mobile {
+
+    @media screen and (max-width: 768px) {
+      letter-spacing: 3px;
+      min-width: 50px;
+      padding: 0 15px;
+      height: 35px;
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 12px;
+      height: 30px;
+    }
+  }
 
   &:hover {
     background-color: white;
