@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-// import MediaQuery from 'react-responsive';
 
 import Header from './components/header/header.component';
 import DropMenu from './components/drop-menu/drop-menu.component';

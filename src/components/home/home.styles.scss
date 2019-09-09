@@ -14,6 +14,12 @@
 		background-size: cover;
 		background-position: center;
 		z-index: -1;
+		background-image: url('../../assets/TFE_desktop_homepage_image.jpg');
+		
+
+		@media screen and (max-width: 750px) {
+			background-image: url('../../assets/TFE_mobile_homepage_image.jpg');
+		}
 	}
 
 	.menu-button-header {
@@ -41,6 +47,7 @@
 
 			svg {
 				width: 500px;
+				max-width: 70%;
 				height: auto;
 			}
 		}

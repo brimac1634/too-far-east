@@ -10,7 +10,7 @@ import './home.styles.scss';
 
 const Home = () => (
 	<div className='home'>
-		<div className='hero' style={{backgroundImage: `url(${homeImage})`}} />
+		<div className='hero' />
 		<div className='menu-button-header'>
 			<MenuButton inverted />
 		</div>

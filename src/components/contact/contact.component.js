@@ -1,5 +1,6 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
+import MediaQuery from 'react-responsive';
 
 import MapBox from '../map-box/map-box.component';
 
@@ -13,6 +14,11 @@ import './contact.styles.scss';
 
 const Contact = () => (
 	<div className='contact'>
+		<MediaQuery maxWidth={1024}>
+			<div className='map'>
+				<MapBox />
+			</div>
+		</MediaQuery>
 		<Fade>
 			<div className='heading'>
 				<h1>Contact Us</h1>
@@ -66,9 +72,11 @@ const Contact = () => (
 						</div>
 					</div>
 				</div>
-				<div className='map'>
-					<MapBox />
-				</div>
+				<MediaQuery minWidth={1025}>
+					<div className='map'>
+						<MapBox />
+					</div>
+				</MediaQuery>
 			</div>
 		</Fade>
 	</div>
