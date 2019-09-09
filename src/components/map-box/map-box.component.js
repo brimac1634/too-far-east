@@ -16,12 +16,23 @@ class MapBox extends Component {
 	    }
     };
 
+    handleZoom = increment => {
+    	const { viewport, viewport: { zoom } } = this.state;
+    	this.setState({
+    		viewport: {
+    			...viewport,
+    			zoom: zoom + increment
+    		}
+    	})
+    }
+
     render() {
     	const { viewport } = this.state;
     	return (
     		<div className='map-box'>
 				<ReactMapGL
 				    { ...viewport }
+				    scrollZoom={false}
 				    mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
 				    onViewportChange={(viewport) => this.setState({viewport})}
 				>
@@ -36,6 +47,10 @@ class MapBox extends Component {
 						</div>
 					</Marker>
 				</ReactMapGL>
+				<div className='zoom'>
+					<div onClick={()=>this.handleZoom(1)}>+</div>
+					<div onClick={()=>this.handleZoom(-1)}>&#8211;</div>
+				</div>
 			</div>
     	)
     }

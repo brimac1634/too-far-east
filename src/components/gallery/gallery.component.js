@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 
 import Arrows from '../arrows/arrows.component';
 
-import shanghai from '../../assets/shanghai.jpg';
+import gallery1 from '../../assets/TFE_gallery_1.jpg';
+import gallery2 from '../../assets/TFE_gallery_2.jpg';
+import gallery3 from '../../assets/TFE_gallery_3.jpg';
+import gallery4 from '../../assets/TFE_gallery_4.jpg';
 import './gallery.styles.scss';
 
 class Gallery extends Component {
 	state = {
-		images: [shanghai, shanghai, shanghai],
+		images: [gallery1, gallery2, gallery3, gallery4],
 		currentImage: 0,
 		nextImage: 1,
 		isChanging: false,
