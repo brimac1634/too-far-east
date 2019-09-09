@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Arrows from '../arrows/arrows.component';
+import RightArrow from '../arrows/right-arrow.component';
+import LeftArrow from '../arrows/left-arrow.component';
 
 import gallery1 from '../../assets/TFE_gallery_1.jpg';
 import gallery2 from '../../assets/TFE_gallery_2.jpg';
@@ -60,12 +61,8 @@ class Gallery extends Component {
 					className={`image ${isChanging ? 'fade-out' : null}`}
 					style={{backgroundImage: `url(${images[currentImage]})`}} 
 				/>
-				<Arrows 
-					showBack
-					showNext
-					back={()=>this.handleNext(false)}
-					next={()=>this.handleNext(true)}
-				/>
+				<RightArrow show handleClick={()=>this.handleNext(true)}/>
+				<LeftArrow show handleClick={()=>this.handleNext(false)}/>
 				<div className='indicators'>
 					{
 						images.map((image, i) => {

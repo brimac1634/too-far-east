@@ -1,4 +1,5 @@
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 
 import CustomButton from '../custom-button/custom-button.component';
 import MenuButton from '../menu-button/menu-button.component';
@@ -13,14 +14,16 @@ const Home = () => (
 		<div className='menu-button-header'>
 			<MenuButton inverted />
 		</div>
-		<div className='center'>
-			<div className='logo-container'>
-				<Logo />
+		<Fade>
+			<div className='center'>
+				<div className='logo-container'>
+					<Logo />
+				</div>
+				<CustomButton>
+					Book Now
+				</CustomButton>
 			</div>
-			<CustomButton>
-				Book Now
-			</CustomButton>
-		</div>
+		</Fade>
 		<div className='scroll-message'>
 			<span>scroll down for more</span>
 		</div>
