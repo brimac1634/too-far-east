@@ -1,16 +1,22 @@
 import React from 'react';
+import MediaQuery from 'react-responsive';
 import Fade from 'react-reveal/Fade';
+
+import Gallery from '../../components/gallery/gallery.component';
 
 import './our-story.styles.scss';
 
 const OurStory = () => (
 	<div className='our-story'>
+		<MediaQuery maxWidth={1024}>
+			<Gallery />
+		</MediaQuery>
 		<div className='text'>
 			<Fade>
 				<h1>OUR STORY</h1>
 			</Fade>
 			<Fade>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				<p>Too Far East Barber & Co. was founded by two individuals who barbered side by side from the day they entered the industry. One with deep roots in Hong Kong and the other hailing from Toronto, Canada, both have immense respect for the Cantonese and Shanghainese barbers that were here before them. Naturally, Too Far East became a barbershop where East meets with West and where the old is weaved with the new. It represents their journey of going so Far East that they came out West.
 				</p>
 			</Fade>
 		</div>

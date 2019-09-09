@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MediaQuery from 'react-responsive';
 
 import Home from '../../components/home/home.component';
 import Updates from '../../components/updates/updates.component';
@@ -42,9 +43,11 @@ class HomePage extends Component {
 				<div ref={this.OurStory}>
 					<OurStory />
 				</div>
-				<div ref={this.Gallery}>
-					<Gallery />
-				</div>
+				<MediaQuery minWidth={1025}>
+					<div ref={this.Gallery}>
+						<Gallery />
+					</div>
+				</MediaQuery>
 				<div ref={this.Contact}>
 					<Contact />
 				</div>

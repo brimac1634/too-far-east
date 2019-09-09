@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import MediaQuery from 'react-responsive';
 
 import { scrollToSection } from '../../redux/nav/nav.actions';
 
@@ -19,21 +20,30 @@ const NavOptions = ({ inverted, show, vertical, scrollToSection }) => {
 	}
 
 	return (
-		<div className={`options ${vertical ? 'vertical' : null}`}>
-			{
-				navOptions.map(({title, section}, i) => {
-					return (
-						<span 
-							className={`option ${inverted ? 'inverted' : null} ${show ? 'show' : 'hide'}`} 
-							key={i}
-							onClick={()=>handleScroll(section)}
-						>
-							{title}
-						</span>
-					)
-				})
+		<MediaQuery maxWidth={1024}>
+			{(matches) =>
+				<div className={`options ${vertical ? 'vertical' : null}`}>
+					{
+						navOptions.filter(({title})=>{
+							if (matches && title === 'gallery') {
+								return false;
+							} else { return true; }
+						}).map(({title, section}, i) => {
+							
+							return (
+								<span 
+									className={`option ${inverted ? 'inverted' : null} ${show ? 'show' : 'hide'}`} 
+									key={i}
+									onClick={()=>handleScroll(section)}
+								>
+									{title}
+								</span>
+							)
+						})
+					}
+				</div>
 			}
-		</div>
+		</MediaQuery>
 	)
 }
 
