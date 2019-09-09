@@ -30,31 +30,34 @@ class Header extends Component {
     	const { showHeader, inverted } = this.state;
 
     	const fade = showHeader ? 'fade-in' : 'fade-out'
-    	const invert = inverted ? 'inverted' : null
+    	
 
     	return (
     		<MediaQuery maxWidth={1024}>
-				{(matches) => 
-					<div className={`header ${fade} ${invert}`}>
-    					<MenuButton inverted={inverted} />
-						<Link className='logo-container' to={'/'}>
-							{
-								inverted
-								? 	<WhiteLogo />
-								: 	<BlackLogo />
-							}
-						</Link>
-						<div className='book-button'>
-							<CustomButton 
-								tiny
-								href='https://toofareastbarber.resurva.com/book' 
-								inverted={!inverted}
-							>
-								{matches ? 'Book' : 'Book Now'}
-							</CustomButton>
+				{(matches) => {
+					const invert = inverted && !matches ? 'inverted' : null
+					return (
+						<div className={`header ${fade} ${invert}`}>
+	    					<MenuButton inverted={inverted && !matches} />
+							<Link className='logo-container' to={'/'}>
+								{
+									inverted && !matches
+									? 	<WhiteLogo />
+									: 	<BlackLogo />
+								}
+							</Link>
+							<div className='book-button'>
+								<CustomButton 
+									tiny
+									href='https://toofareastbarber.resurva.com/book' 
+									inverted={!inverted || matches}
+								>
+									{matches ? 'Book' : 'Book Now'}
+								</CustomButton>
+							</div>
 						</div>
-					</div>
-				}
+					)
+				}}
 			</MediaQuery>
     	)
     }
