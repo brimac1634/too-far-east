@@ -8,7 +8,7 @@
 	cursor: pointer;
 	position: absolute;
 	bottom: 50%;
-	transform: translateY(-50%);
+	transform: translateY(50%);
 	transition: all 500ms ease-in-out;
 
 	@media screen and (max-width: 500px) {
@@ -29,11 +29,11 @@
 	}
 
 	&.hide-back {
-		transform: translateX(-100px);
+		transform: translate(-100px, 50%);
 	}
 
 	&.hide-next {
-		transform: translateX(100px);
+		transform: translate(100px, 50%);
 	}
 
 	&.show-back,
@@ -44,7 +44,7 @@
 
 	&.bottom {
 		transform: none;
-		bottom: 20px;
+		bottom: 40px;
 	}
 
 	.button {
