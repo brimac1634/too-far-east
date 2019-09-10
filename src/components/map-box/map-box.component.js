@@ -39,7 +39,7 @@ class MapBox extends Component {
     				{(matches)=>
     					<ReactMapGL
 						    { ...viewport }
-						    width={matches ? window.innerWidth : 900}
+						    width={matches ? window.innerWidth : window.innerWidth * 0.6}
 						    height={matches ? window.innerHeight * 0.4 : 380}
 						    scrollZoom={false}
 						    mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}

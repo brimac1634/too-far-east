@@ -3,7 +3,8 @@
 	padding: 80px 60px 20px 60px;
 
 	@media screen and (max-width: 1024px) {
-		padding: 60px 0;
+		height: auto;
+		margin-top: 60px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -18,11 +19,6 @@
 		@media screen and (max-width: 1024px) {
 			padding: 20px;
 			align-items: center;
-
-			h1 {
-				font-size: 18px;
-
-			}
 		}
 
 		@media screen and (max-width: 768px) {

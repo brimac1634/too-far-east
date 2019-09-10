@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
+import MediaQuery from 'react-responsive';
 
 import RightArrow from '../arrows/right-arrow.component';
 import LeftArrow from '../arrows/left-arrow.component';
@@ -35,18 +36,38 @@ class Updates extends Component {
 
 		return (
 			<Fade>
-				<div className='updates'>
-					<h1>UPDATES</h1>
-					<div ref={this.list} onScroll={this.handleListScroll} className='update-list'>
-						{
-							updateData.map(({ ...props }, i) => (
-								<UpdatesItem key={i} {...props} />
-							))
-						}
-					</div>
-					<LeftArrow show={scroll >= 60} handleClick={()=>this.moveList(-320)} />
-					<RightArrow show isFirst={scroll <= 60} handleClick={()=>this.moveList(320)} />
-				</div>
+				<MediaQuery minWidth={501}>
+					{(matches) => 
+						<div className='updates'>
+							{
+								matches &&
+								<h1>UPDATES</h1>
+							}
+							<div 
+								ref={this.list} 
+								onScroll={this.handleListScroll} 
+								className='update-list'
+							>
+								{
+									updateData.map(({ ...props }, i) => (
+										<UpdatesItem key={i} {...props} />
+									))
+								}
+							</div>
+							<LeftArrow 
+								show={scroll >= 60} 
+								bottom={!matches}
+								handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
+							/>
+							<RightArrow 
+								show 
+								isFirst={scroll <= 60} 
+								bottom={!matches}
+								handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
+							/>
+						</div>
+					}
+				</MediaQuery>
 			</Fade>
 		)
 	}

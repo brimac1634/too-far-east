@@ -14,6 +14,22 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+h1 {
+  font-size: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+
 a {
   	font-family: 'Lexend Deca', sans-serif;
     text-decoration: none;

@@ -1,6 +1,7 @@
 .gallery {
 	position: relative;
 	height: 100vh;
+	min-height: 600px;
 	width: 100%;
 	padding: 0 20px;
 	background: black;
@@ -8,6 +9,7 @@
 	@media screen and (max-width: 1024px) {
 		padding: 0;
 		height: 50vh;
+		min-height: 350px;
 	}
 
 	.image {
@@ -20,7 +22,7 @@
 		background-position: center;
 		background-size: cover;
 
-		@media screen and (max-width: 500px) {
+		@media screen and (max-width: 1024px) {
 			background-repeat: no-repeat;
 			background-size: contain;
 		}
