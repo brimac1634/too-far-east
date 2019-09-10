@@ -6,7 +6,7 @@ import Home from '../../components/home/home.component';
 import Updates from '../../components/updates/updates.component';
 import Contact from '../../components/contact/contact.component';
 import OurStory from '../../components/our-story/our-story.component';
-import Gallery from '../../components/gallery/gallery.component';
+import GallerySet from '../../components/gallery-set/gallery-set.component';
 
 
 const mapStateToProps = state => ({
@@ -45,7 +45,7 @@ class HomePage extends Component {
 				</div>
 				<MediaQuery minWidth={1025}>
 					<div ref={this.Gallery}>
-						<Gallery />
+						<GallerySet />
 					</div>
 				</MediaQuery>
 				<div ref={this.Contact}>

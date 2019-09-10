@@ -5,7 +5,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import MenuButton from '../menu-button/menu-button.component';
 import { ReactComponent as Logo } from '../../assets/TFE_white_logo.svg'
 
-import homeImage from '../../assets/TFE_desktop_homepage_image.jpg'
+// import homeImage from '../../assets/TFE_desktop_homepage_image.jpg'
 import './home.styles.scss';
 
 const Home = () => (
