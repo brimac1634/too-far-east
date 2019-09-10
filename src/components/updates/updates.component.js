@@ -39,10 +39,6 @@ class Updates extends Component {
 				<MediaQuery minWidth={501}>
 					{(matches) => 
 						<div className='updates'>
-							{
-								matches &&
-								<h1>UPDATES</h1>
-							}
 							<div 
 								ref={this.list} 
 								onScroll={this.handleListScroll} 
@@ -56,13 +52,13 @@ class Updates extends Component {
 							</div>
 							<LeftArrow 
 								show={scroll >= 60} 
-								bottom={!matches}
+								upper={!matches}
 								handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
 							/>
 							<RightArrow 
 								show 
 								isFirst={scroll <= 60} 
-								bottom={!matches}
+								upper={!matches}
 								handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
 							/>
 						</div>
