@@ -17,10 +17,6 @@ class MapBox extends Component {
 	    }
     };
 
-    onViewportChange = viewport => { 
-	    this.setState({ viewport })
-	}
-
     handleZoom = increment => {
     	const { viewport, viewport: { zoom } } = this.state;
     	this.setState({
@@ -43,7 +39,7 @@ class MapBox extends Component {
 						    height={matches ? window.innerHeight * 0.4 : 380}
 						    scrollZoom={false}
 						    mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
-						    onViewportChange={viewport => this.onViewportChange(viewport)}
+						    onViewportChange={(viewport) => this.setState({viewport})}
 						>
 							<Marker 
 								latitude={22.28153}

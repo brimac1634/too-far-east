@@ -1,7 +1,11 @@
-.sign-in {
+.sign-in-form {
 	width: 380px;
 	display: flex;
 	flex-direction: column;
+
+	h2 {
+		text-align: center;
+	}
 
 	.title {
 		margin: 10px 0;

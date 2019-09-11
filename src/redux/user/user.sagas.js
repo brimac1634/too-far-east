@@ -1,8 +1,7 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
 
 import { 
-	auth, 
-	googleProvider, 
+	auth,
 	createUserProfileDocument,
 	getCurrentUser
 } from '../../firebase/firebase.utils';

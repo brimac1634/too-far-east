@@ -35,7 +35,7 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<div className='sign-in'>
+			<div className='sign-in-form'>
 				<h2>Admin Portal</h2>
 				<form onSubmit={this.handleSubmit}>
 					<FormInput 
@@ -55,7 +55,7 @@ class SignIn extends Component {
 						required 
 					/>
 					<div className='buttons'>
-						<CustomButton type='submit'> Sign In </CustomButton>
+						<CustomButton inverted type='submit'> Sign In </CustomButton>
 					</div>
 				</form>
 			</div>

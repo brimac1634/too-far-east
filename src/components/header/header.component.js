@@ -28,9 +28,7 @@ class Header extends Component {
 
     render() {
     	const { showHeader, inverted } = this.state;
-
     	const fade = showHeader ? 'fade-in' : 'fade-out'
-    	
 
     	return (
     		<MediaQuery maxWidth={1024}>
