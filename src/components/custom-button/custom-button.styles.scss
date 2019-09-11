@@ -4,7 +4,7 @@
   width: auto;
   height: 40px;
   line-height: 100%;
-  padding: 0 25px;
+  padding: 0 18px;
   font-size: 16px;
   background-color: transparent;
   border: 2px solid white;
@@ -12,12 +12,16 @@
   outline: none;
   text-transform: uppercase;
   font-family: 'Lexend Deca', sans-serif;
-  letter-spacing: 5.392px;
+  letter-spacing: 4.5px;
   font-weight: bolder;
   cursor: pointer;
   display: flex;
   justify-content: center;
   transition: all 200ms ease-in-out;
+
+  &.large {
+    padding: 0 35px;
+  }
 
   &.mobile {
 

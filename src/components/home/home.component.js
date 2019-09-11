@@ -19,7 +19,10 @@ const Home = () => (
 				<div className='logo-container'>
 					<Logo />
 				</div>
-				<CustomButton href='https://toofareastbarber.resurva.com/book'>
+				<CustomButton 
+					large
+					href='https://toofareastbarber.resurva.com/book'
+				>
 					Book Now
 				</CustomButton>
 			</div>
