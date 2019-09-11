@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addCollectionAndDocuments } from '../../firebase/firebase.utils';
+
+import { startLoading, stopLoading } from '../../redux/loading/loading.actions';
+import { setAlert } from '../../redux/alert/alert.actions'; 
 
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
 import { ReactComponent as BlackLogo } from '../../assets/TFE_black_logo.svg'
 import './update-form.styles.scss';
+
+const mapDispatchToProps = dispatch => ({
+	startLoading: message => dispatch(startLoading(message)),
+	stopLoading: () => dispatch(stopLoading()),
+	setAlert: message => dispatch(setAlert(message))
+})
 
 class UpdateForm extends Component {
 	constructor() {
@@ -20,10 +31,20 @@ class UpdateForm extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		// const { startLoading, stopLoading, setAlert } = this.props;
-		// startLoading('Creating New Update...')
+		const { startLoading, stopLoading, setAlert } = this.props;
+		startLoading('Creating New Update...')
 		const form = this.state;
-		console.log(form)
+		addCollectionAndDocuments('updates', form)
+			.then(({ title }) => {
+				console.log(title)
+				setAlert(`Added: "${title}"`)
+				stopLoading();
+			})
+			.catch(err => {
+				console.log(err)
+				setAlert('Unable to Update')
+				stopLoading();
+			})
 	}
 
 	handleChange = e => {
@@ -32,7 +53,6 @@ class UpdateForm extends Component {
 	}
 
 	handleChangeFile = e => {
-		let { images } = this.state;
 		const file = e.target.files[0];
 		this.setState({ image: file })
 	}
@@ -59,6 +79,7 @@ class UpdateForm extends Component {
 								value={title} 
 								label='Title'
 								handleChange={this.handleChange}
+								required
 							/>
 							<FormInput 
 								area
@@ -67,6 +88,7 @@ class UpdateForm extends Component {
 								value={details} 
 								label='Details'
 								handleChange={this.handleChange}
+								required
 							/>
 						</div>
 						<div className='panel'>
@@ -77,6 +99,7 @@ class UpdateForm extends Component {
 								name='image'
 								id='upload' 
 								onChange={this.handleChangeFile} 
+								required
 							/>
 							<label htmlFor='upload'>{image ? 'Change Image' : 'Choose Image'}</label>
 							{
@@ -99,4 +122,4 @@ class UpdateForm extends Component {
 	}
 }
 
-export default UpdateForm;
+export default connect(null, mapDispatchToProps)(UpdateForm);

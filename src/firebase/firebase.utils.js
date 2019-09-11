@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/storage';
 
 const config = {
     apiKey: "AIzaSyAT0gpBdTsMd2uGLzQ355TzEzgmAiP39MI",
@@ -33,16 +34,22 @@ export const createUserProfileDocument = async (userAuth, otherData) => {
 	return userRef;
 }
 
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-	const collectionRef = firestore.collection(collectionKey);
-
-	const batch = firestore.batch();
-	objectsToAdd.forEach(obj => {
-		const newDocRef = collectionRef.doc()
-		batch.set(newDocRef, obj);
-	})
-
-	await batch.commit()
+export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
+	const { title, image } = objectToAdd;
+	const newTitle = title.replace(' ', '-').toLowerCase();
+	const imageType = image.type.split('/')[1];
+	const imageRef = storageRef.child(`images/${new Date().toISOString()}_${newTitle}.${imageType}`);
+	try {
+		const { metadata } = await imageRef.put(image)
+		const { fullPath } = metadata;
+		const collectionRef = firestore.collection(collectionKey);
+		const newDocRef = await collectionRef.doc()
+		const objectToSave = { ...objectToAdd, image: fullPath }
+		await newDocRef.set(objectToSave)
+		return objectToSave
+	} catch (err) {
+		return err
+	}
 }
 
 export const getCurrentUser = () => {
@@ -58,5 +65,6 @@ firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const storageRef = firebase.storage().ref();
 
 export default firebase;
