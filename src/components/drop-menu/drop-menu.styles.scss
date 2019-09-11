@@ -11,6 +11,12 @@
 	background-color: black;
 	z-index: 10;
 	transition: all 500ms ease-in-out;
+	padding: 60px 0;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+	  display: none;
+	}
 
 	@media screen and (max-width: 500px) {
       max-width: 350px;

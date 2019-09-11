@@ -19,6 +19,15 @@
 		}
 	}
 
+	.admin {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		border-bottom: 2px solid white;
+		padding: 10px 0;
+		margin-bottom: 10px;
+	}
+
 	.option {
 		margin: 0 10px;
 		font-family: 'Amiri', serif;
@@ -26,6 +35,7 @@
 		letter-spacing: 4.32px;
 		line-height: 60px;
 		color: white;
+		text-transform: lowercase;
 		transition: all 300ms ease-in-out;
 
 		&:hover {
