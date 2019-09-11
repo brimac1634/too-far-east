@@ -27,11 +27,12 @@ class UpdateForm extends Component {
 
 	handleChangeFile = e => {
 		let { images } = this.state;
-		const files = e.target.files;
+		const file = e.target.files[0];
 		this.setState({ image: file })
 	}
 
 	render() {
+		const { title, type, details } = this.state;
 		return (
 			<div className='update-form'>
 				<FormInput 
@@ -48,14 +49,6 @@ class UpdateForm extends Component {
 					value={title} 
 					label='Title'
 					handleChange={this.handleChange}
-				/>
-				<FormInput 
-					name='quantity' 
-					type='number' 
-					value={quantity} 
-					label='Quantity in Stock'
-					handleChange={this.handleChange}
-					required 
 				/>
 				<FormInput 
 					area

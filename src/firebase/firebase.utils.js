@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyAT0gpBdTsMd2uGLzQ355TzEzgmAiP39MI",
     authDomain: "too-far-east.firebaseapp.com",
     databaseURL: "https://too-far-east.firebaseio.com",

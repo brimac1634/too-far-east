@@ -5,7 +5,7 @@ import './loader.styles.scss';
 const Loader = () => (
 	<div className='loader'>
 		<div className='content'>
-			<span>Loading</span>
+			<h1>Loading</h1>
 		</div>
 	</div>
 )
