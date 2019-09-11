@@ -13,6 +13,7 @@
 	transition: all 500ms ease-in-out;
 	padding: 60px 0;
 	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
 
 	&::-webkit-scrollbar {
 	  display: none;
@@ -33,7 +34,12 @@
 	}
 
 	.drop-menu-content {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 		padding: 0 80px;
+		margin: 60px 0;
 
 		.icon-set {
 			width: auto;

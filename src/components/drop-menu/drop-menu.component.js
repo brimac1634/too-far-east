@@ -5,7 +5,6 @@ import NavOptions from '../nav-options/nav-options.component';
 import { ReactComponent as InstaIcon } from '../../assets/instagram.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg'
 
-import { toggleMenu } from '../../redux/menu/menu.actions';
 
 import './drop-menu.styles.scss';
 
@@ -13,11 +12,7 @@ const mapStateToProps = state => ({
 	showMenu: state.menu.showMenu
 })
 
-const mapDispatchToProps = dispatch => ({
-	toggleMenu: showMenu => dispatch(toggleMenu(showMenu))
-})
-
-const DropMenu = ({ showMenu, toggleMenu }) => (
+const DropMenu = ({ showMenu }) => (
 	<div className={`drop-menu ${showMenu ? 'show' : 'hide'}`}>
 		<div className='drop-menu-content'>
 			<NavOptions vertical inverted show />
@@ -39,11 +34,8 @@ const DropMenu = ({ showMenu, toggleMenu }) => (
 					<FacebookIcon />
 				</a>
 			</div>
-			<div className='close-container'>
-				<div className='close' onClick={()=>toggleMenu(false)} />
-			</div>
 		</div>
 	</div>
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(DropMenu);
+export default connect(mapStateToProps)(DropMenu);

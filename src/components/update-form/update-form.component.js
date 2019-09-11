@@ -11,16 +11,19 @@ class UpdateForm extends Component {
 		super();
 		this.state = {
 			image: null,
-			date: '',
+			date: new Date(),
 			title: '',
 			type: '',
 			details: ''
 		}
 	}
 
-	formatDate = () => {
-		const date = new Date();
-		console.log(date)
+	handleSubmit = async event => {
+		event.preventDefault();
+		// const { startLoading, stopLoading, setAlert } = this.props;
+		// startLoading('Creating New Update...')
+		const form = this.state;
+		console.log(form)
 	}
 
 	handleChange = e => {

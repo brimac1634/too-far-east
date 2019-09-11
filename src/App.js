@@ -10,15 +10,19 @@ import SignIn from './pages/sign-in/sign-in.component';
 import NewUpdate from './pages/new-update/new-update.component';
 import UpdatesPage from './pages/updates-page/updates-page.component';
 import Loader from './components/loader/loader.component';
+import Alert from './components/alert/alert.component';
 
 import { selectCurrentUser, selectIsUserFetching } from './redux/user/user.selectors';
+import { selectIsLoading, selectLoadingMessage } from './redux/loading/loading.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
 import './App.css';
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  isFetchingUser: selectIsUserFetching
+  isFetchingUser: selectIsUserFetching,
+  isLoading: selectIsLoading,
+  loadingMessage: selectLoadingMessage
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -32,16 +36,25 @@ class App extends Component {
     }
 
     render() {
-        const { isFetchingUser } = this.props;
+        const { isFetchingUser, isLoading, loadingMessage } = this.props;
 
         return (
         	<div>
                 {
                     !isFetchingUser &&
                     <div>
-                        <Header />
                         <Switch>
-                            <Route exact path='/' component={HomePage} />
+                            <Route 
+                                exact 
+                                path='/'
+                                render={() =>
+                                    <div>
+                                        <Header />
+                                        <HomePage />
+                                        <DropMenu />
+                                    </div>
+                                }  
+                            />
                             <Route 
                                 exact 
                                 path='/sign-in' 
@@ -67,12 +80,15 @@ class App extends Component {
                             <Route path='/updates' component={UpdatesPage} />
                             <Redirect to='/' />
                         </Switch>
-                        <DropMenu />
+                        {isLoading &&
+                            <Loader message={loadingMessage} />
+                        }
                     </div>
                 }
                 {isFetchingUser &&
                   <Loader />
                 }
+                <Alert />
         	</div>
         )
     }

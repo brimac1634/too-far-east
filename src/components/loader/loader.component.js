@@ -2,10 +2,10 @@ import React from 'react';
 
 import './loader.styles.scss';
 
-const Loader = () => (
+const Loader = ({ message }) => (
 	<div className='loader'>
 		<div className='content'>
-			<h1>Loading</h1>
+			<h1>{message || 'Loading'}</h1>
 		</div>
 	</div>
 )
