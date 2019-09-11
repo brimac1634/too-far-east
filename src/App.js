@@ -36,35 +36,40 @@ class App extends Component {
 
         return (
         	<div>
-                <Header />
-                <Switch>
-                    <Route exact path='/' component={HomePage} />
-                    <Route 
-                        exact 
-                        path='/sign-in' 
-                        render={() =>
-                            this.props.currentUser ? (
-                              <Redirect to={'/'}/>
-                            ) : (
-                              <SignIn />
-                            )
-                        }
-                    />
-                    <Route 
-                        exact
-                        path='/new-update'
-                        render={()=>(
-                            this.props.currentUser ? (
-                              <NewUpdate />
-                            ) : (
-                              <Redirect to={'/'}/>
-                            )
-                        )}
-                    />
-                    <Route path='/updates' component={UpdatesPage} />
-                    <Redirect to='/' />
-                </Switch>
-                <DropMenu />
+                {
+                    !isFetchingUser &&
+                    <div>
+                        <Header />
+                        <Switch>
+                            <Route exact path='/' component={HomePage} />
+                            <Route 
+                                exact 
+                                path='/sign-in' 
+                                render={() =>
+                                    this.props.currentUser ? (
+                                      <Redirect to={'/'}/>
+                                    ) : (
+                                      <SignIn />
+                                    )
+                                }
+                            />
+                            <Route 
+                                exact
+                                path='/new-update'
+                                render={()=>(
+                                    this.props.currentUser ? (
+                                      <NewUpdate />
+                                    ) : (
+                                      <Redirect to={'/'}/>
+                                    )
+                                )}
+                            />
+                            <Route path='/updates' component={UpdatesPage} />
+                            <Redirect to='/' />
+                        </Switch>
+                        <DropMenu />
+                    </div>
+                }
                 {isFetchingUser &&
                   <Loader />
                 }
