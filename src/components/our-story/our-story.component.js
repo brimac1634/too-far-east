@@ -2,14 +2,14 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 import Fade from 'react-reveal/Fade';
 
-import GallerySet from '../../components/gallery-set/gallery-set.component';
+import Gallery from '../../components/gallery/gallery.component';
 
 import './our-story.styles.scss';
 
 const OurStory = () => (
 	<div className='our-story'>
 		<MediaQuery maxWidth={1024}>
-			<GallerySet />
+			<Gallery />
 		</MediaQuery>
 		<div className='text'>
 			<Fade bottom>
