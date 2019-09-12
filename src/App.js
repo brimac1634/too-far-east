@@ -40,54 +40,48 @@ class App extends Component {
 
         return (
         	<div>
-                {
-                    !isFetchingUser &&
-                    <div>
-                        <Switch>
-                            <Route 
-                                exact 
-                                path='/'
-                                render={() =>
-                                    <div>
-                                        <Header />
-                                        <HomePage />
-                                        <DropMenu />
-                                    </div>
-                                }  
-                            />
-                            <Route 
-                                exact 
-                                path='/admin-login' 
-                                render={() =>
-                                    this.props.currentUser ? (
-                                      <Redirect to={'/'}/>
-                                    ) : (
-                                      <SignIn />
-                                    )
-                                }
-                            />
-                            <Route 
-                                exact
-                                path='/new-update'
-                                render={()=>(
-                                    this.props.currentUser ? (
-                                      <NewUpdate />
-                                    ) : (
-                                      <Redirect to={'/admin-login'}/>
-                                    )
-                                )}
-                            />
-                            <Route path='/updates' component={UpdatesPage} />
-                            <Redirect to='/' />
-                        </Switch>
-                        {isLoading &&
-                            <Loader message={loadingMessage} />
-                        }
-                    </div>
-                }
-                {isFetchingUser &&
-                  <Loader />
-                }
+                <div>
+                    <Switch>
+                        <Route 
+                            exact 
+                            path='/'
+                            render={() =>
+                                <div>
+                                    <Header />
+                                    <HomePage />
+                                    <DropMenu />
+                                </div>
+                            }  
+                        />
+                        <Route 
+                            exact 
+                            path='/admin-login' 
+                            render={() =>
+                                this.props.currentUser ? (
+                                  <Redirect to={'/'}/>
+                                ) : (
+                                  <SignIn />
+                                )
+                            }
+                        />
+                        <Route 
+                            exact
+                            path='/new-update'
+                            render={()=>(
+                                this.props.currentUser ? (
+                                  <NewUpdate />
+                                ) : (
+                                  <Redirect to={'/admin-login'}/>
+                                )
+                            )}
+                        />
+                        <Route path='/updates' component={UpdatesPage} />
+                        <Redirect to='/' />
+                    </Switch>
+                    {isLoading &&
+                        <Loader message={loadingMessage} />
+                    }
+                </div>
                 <Alert />
         	</div>
         )

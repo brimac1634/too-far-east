@@ -52,7 +52,6 @@ class Updates extends Component {
 	render() {
 		const { scroll } = this.state;
 		const { updates } = this.props;
-		console.log(updates)
 
 		return (
 			<Fade>

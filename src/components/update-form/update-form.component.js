@@ -103,7 +103,7 @@ class UpdateForm extends Component {
 								required
 							/>
 							<label htmlFor='upload'>{image ? 'Change Image' : 'Choose Image'}</label>
-							<span>(png/jpg - )</span>
+							<span>note: png/jpg - 4:3 is best</span>
 							{
 								image &&
 								<div 
