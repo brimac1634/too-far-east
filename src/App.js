@@ -57,7 +57,7 @@ class App extends Component {
                             />
                             <Route 
                                 exact 
-                                path='/sign-in' 
+                                path='/admin-login' 
                                 render={() =>
                                     this.props.currentUser ? (
                                       <Redirect to={'/'}/>
@@ -73,7 +73,7 @@ class App extends Component {
                                     this.props.currentUser ? (
                                       <NewUpdate />
                                     ) : (
-                                      <Redirect to={'/'}/>
+                                      <Redirect to={'/admin-login'}/>
                                     )
                                 )}
                             />

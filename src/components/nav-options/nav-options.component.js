@@ -31,8 +31,13 @@ const NavOptions = ({ toggleMenu, currentUser, history, inverted, show, vertical
 	}
 
 	const handleNewUpdate = () => {
-		history.push('/new-update')
-		toggleMenu(false)
+		history.push('/new-update');
+		toggleMenu(false);
+	}
+
+	const handleSignOut = () => {
+		signOutStart();
+		toggleMenu(false);
 	}
 
 	return (
@@ -50,7 +55,7 @@ const NavOptions = ({ toggleMenu, currentUser, history, inverted, show, vertical
 							</span>
 							<span 
 								className={`option ${inverted ? 'inverted' : null} ${show ? 'show' : 'hide'}`} 
-								onClick={signOutStart}
+								onClick={handleSignOut}
 							>
 								Logout
 							</span>
