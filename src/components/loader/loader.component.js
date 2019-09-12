@@ -1,11 +1,15 @@
 import React from 'react';
 
+import { ReactComponent as BlackLogo } from '../../assets/TFE_black_logo.svg'
+
 import './loader.styles.scss';
 
 const Loader = ({ message }) => (
 	<div className='loader'>
+		<div className='overlay' />
+		<BlackLogo />
 		<div className='content'>
-			<h1>{message || 'Loading'}</h1>
+			<h4>{message || ''}</h4>
 		</div>
 	</div>
 )

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import Fade from 'react-reveal/Fade';
 import MediaQuery from 'react-responsive';
 
@@ -7,7 +9,18 @@ import LeftArrow from '../arrows/left-arrow.component';
 import UpdatesItem from '../updates-item/updates-item.component';
 import updateData from './updates.data';
 
+import { selectUpdates } from '../../redux/updates/updates.selectors';
+import { fetchUpdatesStart } from '../../redux/updates/updates.actions';
+
 import './updates.styles.scss';
+
+const mapStateToProps = createStructuredSelector({
+	updates: selectUpdates
+})
+
+const mapDispatchToProps = dispatch => ({
+	fetchUpdatesStart: () => dispatch(fetchUpdatesStart())
+})
 
 class Updates extends Component {
 	constructor() {
@@ -16,6 +29,11 @@ class Updates extends Component {
 			scroll: 0
 		}
 		this.list = React.createRef();
+	}
+
+	componentDidMount() {
+		const { fetchUpdatesStart } = this.props;
+		fetchUpdatesStart()
 	}
 
 	handleListScroll = ({ target }) => {
@@ -33,6 +51,8 @@ class Updates extends Component {
 
 	render() {
 		const { scroll } = this.state;
+		const { updates } = this.props;
+		console.log(updates)
 
 		return (
 			<Fade>
@@ -45,7 +65,8 @@ class Updates extends Component {
 								className='update-list'
 							>
 								{
-									updateData.map(({ ...props }, i) => (
+									updates &&
+									updates.map(({ ...props }, i) => (
 										<UpdatesItem key={i} {...props} />
 									))
 								}
@@ -69,4 +90,4 @@ class Updates extends Component {
 	}
 }
 
-export default Updates;
+export default connect(mapStateToProps, mapDispatchToProps)(Updates);

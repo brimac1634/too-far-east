@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { addCollectionAndDocuments } from '../../firebase/firebase.utils';
 
 import { startLoading, stopLoading } from '../../redux/loading/loading.actions';
@@ -31,14 +32,14 @@ class UpdateForm extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-		const { startLoading, stopLoading, setAlert } = this.props;
+		const { history, startLoading, stopLoading, setAlert } = this.props;
 		startLoading('Creating New Update...')
 		const form = this.state;
 		addCollectionAndDocuments('updates', form)
 			.then(({ title }) => {
-				console.log(title)
 				setAlert(`Added: "${title}"`)
 				stopLoading();
+				history.push('/')
 			})
 			.catch(err => {
 				console.log(err)
@@ -102,6 +103,7 @@ class UpdateForm extends Component {
 								required
 							/>
 							<label htmlFor='upload'>{image ? 'Change Image' : 'Choose Image'}</label>
+							<span>(png/jpg - )</span>
 							{
 								image &&
 								<div 
@@ -122,4 +124,4 @@ class UpdateForm extends Component {
 	}
 }
 
-export default connect(null, mapDispatchToProps)(UpdateForm);
+export default withRouter(connect(null, mapDispatchToProps)(UpdateForm));

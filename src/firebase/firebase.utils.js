@@ -36,7 +36,7 @@ export const createUserProfileDocument = async (userAuth, otherData) => {
 
 export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
 	const { title, image } = objectToAdd;
-	const newTitle = title.replace(' ', '-').toLowerCase();
+	const newTitle = title.replace(/ /g, '-').toLowerCase();
 	const imageType = image.type.split('/')[1];
 	const imageRef = storageRef.child(`images/${new Date().toISOString()}_${newTitle}.${imageType}`);
 	try {
@@ -50,6 +50,28 @@ export const addCollectionAndDocuments = async (collectionKey, objectToAdd) => {
 	} catch (err) {
 		return err
 	}
+}
+
+const updatesDate = date => {
+	const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+	  "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+	];
+	const now = new Date(date);
+	const y = now.getFullYear();
+	const m = now.getMonth();
+	const d = now.getDate();
+	return `${y}/${months[m]} ${d}`;
+}
+
+export const formatUpdates = async snapshot => {
+	if (!snapshot) return;
+	const promises = snapshot.docs.map(async doc => {
+		let update = doc.data();
+		const imageUrl = await storageRef.child(update.image).getDownloadURL()
+		const date = updatesDate(update.date.toDate())
+		return { ...update, date, image: imageUrl}
+	})
+	return await Promise.all(promises)
 }
 
 export const getCurrentUser = () => {
