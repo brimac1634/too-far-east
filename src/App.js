@@ -12,7 +12,7 @@ import UpdatesPage from './pages/updates-page/updates-page.component';
 import Loader from './components/loader/loader.component';
 import Alert from './components/alert/alert.component';
 
-import { selectCurrentUser, selectIsUserFetching } from './redux/user/user.selectors';
+import { selectCurrentUser } from './redux/user/user.selectors';
 import { selectIsLoading, selectLoadingMessage } from './redux/loading/loading.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
@@ -20,7 +20,6 @@ import './App.css';
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  isFetchingUser: selectIsUserFetching,
   isLoading: selectIsLoading,
   loadingMessage: selectLoadingMessage
 })
@@ -36,7 +35,7 @@ class App extends Component {
     }
 
     render() {
-        const { isFetchingUser, isLoading, loadingMessage } = this.props;
+        const { isLoading, loadingMessage } = this.props;
 
         return (
         	<div>

@@ -7,7 +7,6 @@ import MediaQuery from 'react-responsive';
 import RightArrow from '../arrows/right-arrow.component';
 import LeftArrow from '../arrows/left-arrow.component';
 import UpdatesItem from '../updates-item/updates-item.component';
-import updateData from './updates.data';
 
 import { selectUpdates } from '../../redux/updates/updates.selectors';
 import { fetchUpdatesStart } from '../../redux/updates/updates.actions';
