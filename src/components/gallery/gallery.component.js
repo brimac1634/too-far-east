@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState, useRef} from 'react';
 
 import RightArrow from '../arrows/right-arrow.component';
 import LeftArrow from '../arrows/left-arrow.component';
@@ -11,9 +11,9 @@ import './gallery.styles.scss';
 
 const Gallery = () => {
 	const images = [gallery1, gallery2, gallery3, gallery4];
-	const [index, setIndex] = React.useState(0);
-	const [translateValue, setTranslation] = React.useState(0);
-	const galleryItem = React.useRef(null);
+	const [index, setIndex] = useState(0);
+	const [translateValue, setTranslation] = useState(0);
+	const galleryItem = useRef(null);
 
 	const nextImage = useCallback(() => {
 		const { width } = galleryItem.current.getBoundingClientRect()
@@ -21,14 +21,14 @@ const Gallery = () => {
 			setIndex(0)
 			setTranslation(0)
 		} else {
+			setTranslation((index + 1) * -width)
 			setIndex(index + 1)
-			setTranslation(translateValue - width)
 		} 
-	}, [index, images, translateValue])
+	}, [index, images])
 
 	
 	
-	React.useEffect(() => {
+	useEffect(() => {
 		const interval = setInterval(() => nextImage(), 8000)
 		return () => clearInterval(interval)
 	}, [index, nextImage])
@@ -37,10 +37,10 @@ const Gallery = () => {
 		const { width } = galleryItem.current.getBoundingClientRect()
 		if (index === 0) {
 			setIndex(images.length - 1)
-			setTranslation(width * (images.length - 1))
+			setTranslation(-width * (images.length - 1))
 		} else {
+			setTranslation((index - 1) * -width)
 			setIndex(index - 1)
-			setTranslation(translateValue + width)
 		}
 	}
 
