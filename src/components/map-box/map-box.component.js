@@ -8,6 +8,7 @@ import './map-box.styles.scss';
 
 class MapBox extends Component {
 	state = {
+		mounted: false,
 	    viewport: {
 	        width: 900,
 	        height: 380,
@@ -16,6 +17,10 @@ class MapBox extends Component {
 	        zoom: 15
 	    }
     };
+
+    componentDidMount () {
+		this.setState({ mounted: true })
+	}
 
     handleZoom = increment => {
     	const { viewport, viewport: { zoom } } = this.state;
@@ -28,7 +33,7 @@ class MapBox extends Component {
     }
 
     render() {
-    	const { viewport } = this.state;
+    	const { viewport, mounted } = this.state;
     	return (
     		<div className='map-box'>
     			<MediaQuery maxWidth={1024}>
@@ -39,7 +44,9 @@ class MapBox extends Component {
 						    height={matches ? window.innerHeight * 0.4 : 380}
 						    scrollZoom={false}
 						    mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
-						    onViewportChange={(viewport) => this.setState({viewport})}
+						    onViewportChange={(viewport) => {
+						    	if (mounted) this.setState({viewport})
+						    }}
 						>
 							<Marker 
 								latitude={22.28153}

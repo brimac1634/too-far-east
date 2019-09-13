@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
+import asyncComponent from './components/async-component/async-component.component';
 import Header from './components/header/header.component';
 import DropMenu from './components/drop-menu/drop-menu.component';
 import HomePage from './pages/homepage/homepage.component';
-import SignIn from './pages/sign-in/sign-in.component';
-import NewUpdate from './pages/new-update/new-update.component';
-import UpdatesPage from './pages/updates-page/updates-page.component';
 import Loader from './components/loader/loader.component';
 import Alert from './components/alert/alert.component';
 
@@ -17,6 +15,12 @@ import { selectIsLoading, selectLoadingMessage } from './redux/loading/loading.s
 import { checkUserSession } from './redux/user/user.actions';
 
 import './App.css';
+
+const SignIn = asyncComponent(() => import('./pages/sign-in/sign-in.component'));
+const NewUpdate = asyncComponent(() => import('./pages/new-update/new-update.component'));
+const UpdatesPage = asyncComponent(() => import('./pages/updates-page/updates-page.component'));
+
+
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

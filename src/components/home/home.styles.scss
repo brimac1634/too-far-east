@@ -1,11 +1,16 @@
 .home {
 	height: 100vh;
+	min-height: 700px;
 	width: 100vw;
 	overflow-x: hidden;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
+
+	@media screen and (max-width: 500px) {
+      min-height: unset;
+    }
 
 	.menu-button-header {
 		position: absolute;
