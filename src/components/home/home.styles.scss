@@ -7,23 +7,6 @@
 	align-items: center;
 	position: relative;
 
-	.hero {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-size: cover;
-		background-position: center;
-		z-index: -1;
-		background-image: url('../../assets/TFE_desktop_homepage_image.jpg');
-		
-
-		@media screen and (max-width: 750px) {
-			background-image: url('../../assets/TFE_mobile_homepage_image.jpg');
-		}
-	}
-
 	.menu-button-header {
 		position: absolute;
 		top: 0;
