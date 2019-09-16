@@ -58,7 +58,7 @@ class App extends Component {
                         />
                         <Route 
                             exact 
-                            path='/admin-login' 
+                            path='/admin' 
                             render={() =>
                                 this.props.currentUser ? (
                                   <Redirect to={'/'}/>

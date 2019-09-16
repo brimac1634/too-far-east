@@ -57,7 +57,8 @@
 
 		p {
 			margin: 0;
-			height: 108px;
+			height: auto;
+			max-height: 108px;
 			font-size: 18px;
 			line-height: 36px;
 			overflow: hidden;

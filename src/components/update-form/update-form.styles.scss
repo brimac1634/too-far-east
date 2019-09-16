@@ -22,8 +22,8 @@
 
 		.panel {
 			width: 100%;
-			min-width: 400px;
-			margin: 0 40px;
+			max-width: 500px;
+			margin: 0 auto;
 
 			&:last-child {
 				display: flex;
@@ -33,14 +33,14 @@
 				margin-bottom: 40px;
 
 				> * {
-					margin: 20px 0;
+					margin: 10px 0;
 				}
 
 			}
 
 			.image {
 				width: 360px;
-				height: 360px;
+				height: 300px;
 				background-size: cover;
 				background-position: center;
 			}

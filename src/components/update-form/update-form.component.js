@@ -26,6 +26,7 @@ class UpdateForm extends Component {
 			date: new Date(),
 			title: '',
 			type: '',
+			externalLink: '',
 			details: ''
 		}
 	}
@@ -33,11 +34,11 @@ class UpdateForm extends Component {
 	handleSubmit = async event => {
 		event.preventDefault();
 		const { history, startLoading, stopLoading, setAlert } = this.props;
-		startLoading('Creating New Update...')
+		startLoading()
 		const form = this.state;
 		addCollectionAndDocuments('updates', form)
 			.then(({ title }) => {
-				setAlert(`Added: "${title}"`)
+				setAlert('Update Added')
 				stopLoading();
 				history.push('/')
 			})
@@ -59,7 +60,7 @@ class UpdateForm extends Component {
 	}
 
 	render() {
-		const { image, title, type, details } = this.state;
+		const { image, title, type, externalLink, details } = this.state;
 		return (
 			<div className='update-form'>
 				<BlackLogo />
@@ -81,6 +82,13 @@ class UpdateForm extends Component {
 								label='Title'
 								handleChange={this.handleChange}
 								required
+							/>
+							<FormInput 
+								name='externalLink' 
+								type='text' 
+								value={externalLink} 
+								label='External Link'
+								handleChange={this.handleChange}
 							/>
 							<FormInput 
 								area

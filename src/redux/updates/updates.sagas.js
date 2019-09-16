@@ -12,7 +12,7 @@ import UpdatesActionTypes from './updates.types';
 export function* fetchUpdatesAsync() {
 	try {
 		const updatesRef = firestore.collection('updates');
-		const snapshot = yield updatesRef.get();
+		const snapshot = yield updatesRef.orderBy('date', 'desc').get();
 		const updates = yield formatUpdates(snapshot);
 		yield put(fetchUpdatesSuccess(updates));
 	} catch (err) {

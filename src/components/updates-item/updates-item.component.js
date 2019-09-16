@@ -5,7 +5,7 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import './updates-item.styles.scss';
 
-const UpdatesItem = ({ title, image, date, type, details}) => (
+const UpdatesItem = ({ title, image, date, type, externalLink, details}) => (
 	<MediaQuery maxWidth={500}>
 		{(matches) => 
 			<div className='updates-item'>
@@ -17,11 +17,12 @@ const UpdatesItem = ({ title, image, date, type, details}) => (
 					<p>{details}</p>
 					<div className='button'>
 						{
-							details.length > 100 &&
+							externalLink &&
 							<CustomButton 
 								inverted 
 								padding='0 15px'
 								tiny={matches}
+								href={externalLink}
 							>
 								SEE MORE
 							</CustomButton>

@@ -2,7 +2,7 @@ import React from 'react';
 import './custom-button.styles.scss';
 
 const CustomButton = ({ children, href, large, tiny, color, inverted, padding, ...otherProps }) => {
-
+	console.log(href)
 	const renderButton = () => (
 		<button 
 			className={`custom-button ${inverted ? 'inverted' : ''} ${tiny ? 'mobile' : null} ${large ? 'large' : null}`} 
@@ -22,7 +22,7 @@ const CustomButton = ({ children, href, large, tiny, color, inverted, padding, .
 				href
 				? 	<a 
 						className='link'
-						href='https://toofareastbarber.resurva.com/book' 
+						href={href} 
 						target='_blank' 
 						rel='noopener noreferrer'
 					>

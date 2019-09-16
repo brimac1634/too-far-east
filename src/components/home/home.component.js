@@ -13,13 +13,11 @@ import './home.styles.scss';
 
 const Home = () => (
 	<div className='home'>
-		<Fade>
-			<MediaQuery maxWidth={750}>
-				{(matches)=>
-					<ParallaxRow background={matches ? homeImageMobile : homeImage} />
-				}
-			</MediaQuery>
-		</Fade>
+		<MediaQuery maxWidth={750}>
+			{(matches)=>
+				<ParallaxRow background={matches ? homeImageMobile : homeImage} />
+			}
+		</MediaQuery>
 		<div className='menu-button-header'>
 			<MenuButton inverted />
 		</div>
