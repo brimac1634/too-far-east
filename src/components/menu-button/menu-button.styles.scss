@@ -5,28 +5,34 @@
   width: auto;
   z-index: 11;
   transition: all 500ms ease-in-out;
+  -webkit-transition: all 500ms ease-in-out;
 
   &.close {
     position: fixed;
     transform: translateX(320px);
+    -webkit-transform: translateX(320px);
 
     @media screen and (max-width: 500px) {
       transform: translateX(270px);
+      -webkit-transform: translateX(270px);
     }
 
     .menu-lines {
 
       div {
         transform: scale(0);
+        -webkit-transform: scale(0);
       }
 
       &:before {
         background: white;
         transform: translateY(9px) rotate(135deg);
+        -webkit-transform: translateY(9px) rotate(135deg);
       }
 
       &:after {
         transform: translateY(-9px) rotate(-135deg);
+        -webkit-transform: translateY(-9px) rotate(-135deg);
       }
     }
   }

@@ -11,6 +11,7 @@
 	background-color: black;
 	z-index: 10;
 	transition: all 500ms ease-in-out;
+	-webkit-transition: all 500ms ease-in-out;
 	padding: 60px 0;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
@@ -31,6 +32,7 @@
 	&.hide {
 		opacity: 0;
 		transform: translateY(-100%);
+		-webkit-transform: translateY(-100%);
 	}
 
 	.drop-menu-content {

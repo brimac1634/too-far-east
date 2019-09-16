@@ -41,9 +41,9 @@ class App extends Component {
         return (
         	<div>
                 <div>
-                    <Switch>
-                        <ErrorBoundary>
-                            <Suspense fallback={<Loader />}>
+                    <ErrorBoundary>
+                        <Suspense fallback={<Loader />}>
+                            <Switch>
                                 <Route 
                                     exact 
                                     path='/'
@@ -58,7 +58,7 @@ class App extends Component {
                                 <Route 
                                     exact 
                                     path='/admin' 
-                                    render={() =>
+                                    render={() => 
                                         this.props.currentUser ? (
                                           <Redirect to={'/'}/>
                                         ) : (
@@ -78,9 +78,9 @@ class App extends Component {
                                     )}
                                 />
                                 <Redirect to='/' />
-                            </Suspense>
-                        </ErrorBoundary>
-                    </Switch>
+                            </Switch>
+                        </Suspense>
+                    </ErrorBoundary>
                     {isLoading &&
                         <Loader message={loadingMessage} />
                     }
