@@ -2,10 +2,6 @@ import React from 'react';
 
 import UpdateForm from '../../components/update-form/update-form.component';
 
-const NewUpdate = () => (
-	<div>
-		<UpdateForm />
-	</div>
-)
+const NewUpdate = () => <UpdateForm />
 
 export default NewUpdate;

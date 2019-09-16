@@ -2,7 +2,6 @@ import React from 'react';
 import './custom-button.styles.scss';
 
 const CustomButton = ({ children, href, large, tiny, color, inverted, padding, ...otherProps }) => {
-	console.log(href)
 	const renderButton = () => (
 		<button 
 			className={`custom-button ${inverted ? 'inverted' : ''} ${tiny ? 'mobile' : null} ${large ? 'large' : null}`} 

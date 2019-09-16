@@ -5,7 +5,7 @@ import MediaQuery from 'react-responsive';
 import Home from '../../components/home/home.component';
 import OurStory from '../../components/our-story/our-story.component';
 import Contact from '../../components/contact/contact.component';
-import Gallery from '../../components/gallery/gallery.component';
+// import Gallery from '../../components/gallery/gallery.component';
 import Updates from '../../components/updates/updates.component';
 
 const mapStateToProps = state => ({
@@ -44,7 +44,7 @@ class HomePage extends Component {
 				</div>
 				<MediaQuery minWidth={1025}>
 					<div ref={this.Gallery}>
-						<Gallery />
+						
 					</div>
 				</MediaQuery>
 				<div ref={this.Contact}>
