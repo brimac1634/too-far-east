@@ -32,3 +32,11 @@
 		}
 	}
 }
+
+.updates-mobile {
+	position: relative;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	height: calc(100vh - 80px);
+}

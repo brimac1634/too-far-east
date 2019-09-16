@@ -4,6 +4,7 @@ import { createStructuredSelector } from 'reselect';
 import Fade from 'react-reveal/Fade';
 import MediaQuery from 'react-responsive';
 
+import Carousel from '../carousel/carousel.component';
 import RightArrow from '../arrows/right-arrow.component';
 import LeftArrow from '../arrows/left-arrow.component';
 import UpdatesItem from '../updates-item/updates-item.component';
@@ -56,30 +57,51 @@ class Updates extends Component {
 			<Fade>
 				<MediaQuery minWidth={501}>
 					{(matches) => 
-						<div className='updates'>
-							<div 
-								ref={this.list} 
-								onScroll={this.handleListScroll} 
-								className='update-list'
-							>
-								{
-									updates &&
-									updates.map(({ ...props }, i) => (
-										<UpdatesItem key={i} {...props} />
-									))
-								}
-							</div>
-							<LeftArrow 
-								show={scroll >= 60} 
-								upper={!matches}
-								handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
-							/>
-							<RightArrow 
-								show 
-								isFirst={scroll <= 60} 
-								upper={!matches}
-								handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
-							/>
+						<div>
+							{
+								matches
+								?	<div className='updates'>
+										<div 
+											ref={this.list} 
+											onScroll={this.handleListScroll} 
+											className='update-list'
+										>
+											{
+												updates &&
+												updates.map(({ ...props }, i) => (
+													<UpdatesItem key={i} {...props} />
+												))
+											}
+										</div>
+										<LeftArrow 
+											show={scroll >= 60} 
+											upper={!matches}
+											handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
+										/>
+										<RightArrow 
+											show 
+											isFirst={scroll <= 60} 
+											upper={!matches}
+											handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
+										/>
+									</div>
+								: 	<div className='updates-mobile'>
+										{
+											updates &&
+											<Carousel 
+												disablePlay
+												disableLeap
+												showMoreMessage
+											>
+												{
+													updates.map(({ ...props }, i) => (
+														<UpdatesItem key={i} {...props} />
+													))
+												}
+											</Carousel>
+										}
+									</div>
+							}
 						</div>
 					}
 				</MediaQuery>
