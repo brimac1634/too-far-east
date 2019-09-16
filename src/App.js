@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 import Header from './components/header/header.component';
 import DropMenu from './components/drop-menu/drop-menu.component';
 import HomePage from './pages/homepage/homepage.component';
@@ -41,42 +42,44 @@ class App extends Component {
         	<div>
                 <div>
                     <Switch>
-                        <Suspense fallback={<Loader />}>
-                            <Route 
-                                exact 
-                                path='/'
-                                render={() =>
-                                    <div>
-                                        <Header />
-                                        <HomePage />
-                                        <DropMenu />
-                                    </div>
-                                }  
-                            />
-                            <Route 
-                                exact 
-                                path='/admin' 
-                                render={() =>
-                                    this.props.currentUser ? (
-                                      <Redirect to={'/'}/>
-                                    ) : (
-                                      <SignIn />
-                                    )
-                                }
-                            />
-                            <Route 
-                                exact
-                                path='/new-update'
-                                render={()=>(
-                                    this.props.currentUser ? (
-                                      <NewUpdate />
-                                    ) : (
-                                      <Redirect to={'/admin'}/>
-                                    )
-                                )}
-                            />
-                            <Redirect to='/' />
-                        </Suspense>
+                        <ErrorBoundary>
+                            <Suspense fallback={<Loader />}>
+                                <Route 
+                                    exact 
+                                    path='/'
+                                    render={() =>
+                                        <div>
+                                            <Header />
+                                            <HomePage />
+                                            <DropMenu />
+                                        </div>
+                                    }  
+                                />
+                                <Route 
+                                    exact 
+                                    path='/admin' 
+                                    render={() =>
+                                        this.props.currentUser ? (
+                                          <Redirect to={'/'}/>
+                                        ) : (
+                                          <SignIn />
+                                        )
+                                    }
+                                />
+                                <Route 
+                                    exact
+                                    path='/new-update'
+                                    render={()=>(
+                                        this.props.currentUser ? (
+                                          <NewUpdate />
+                                        ) : (
+                                          <Redirect to={'/admin'}/>
+                                        )
+                                    )}
+                                />
+                                <Redirect to='/' />
+                            </Suspense>
+                        </ErrorBoundary>
                     </Switch>
                     {isLoading &&
                         <Loader message={loadingMessage} />

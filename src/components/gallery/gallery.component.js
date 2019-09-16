@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState, useRef} from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import RightArrow from '../arrows/right-arrow.component';
 import LeftArrow from '../arrows/left-arrow.component';
@@ -7,10 +8,17 @@ import gallery1 from '../../assets/TFE_gallery_1.jpg';
 import gallery2 from '../../assets/TFE_gallery_2.jpg';
 import gallery3 from '../../assets/TFE_gallery_3.jpg';
 import gallery4 from '../../assets/TFE_gallery_4.jpg';
+import galleryMobile1 from '../../assets/TFE_mobile_gallery_1.jpg';
+import galleryMobile2 from '../../assets/TFE_mobile_gallery_2.jpg';
+import galleryMobile3 from '../../assets/TFE_mobile_gallery_3.jpg';
+import galleryMobile4 from '../../assets/TFE_mobile_gallery_4.jpg';
 import './gallery.styles.scss';
 
 const Gallery = () => {
-	const images = [gallery1, gallery2, gallery3, gallery4];
+	const isMobile = useMediaQuery({ maxWidth: 600 })
+	const images = isMobile
+		? [galleryMobile1, galleryMobile2, galleryMobile3, galleryMobile4]
+		: [gallery1, gallery2, gallery3, gallery4]
 	const [index, setIndex] = useState(0);
 	const [translateValue, setTranslation] = useState(0);
 	const galleryItem = useRef(null);
