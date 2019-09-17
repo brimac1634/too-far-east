@@ -1,4 +1,4 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { connect } from 'react-redux'; 
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -11,6 +11,7 @@ import Loader from './components/loader/loader.component';
 import Alert from './components/alert/alert.component';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
+import { setAlert } from './redux/alert/alert.actions'; 
 import { selectIsLoading, selectLoadingMessage } from './redux/loading/loading.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
@@ -26,69 +27,73 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession())
+  checkUserSession: () => dispatch(checkUserSession()),
+  setAlert: message => dispatch(setAlert(message))
 })
 
-class App extends Component {
-    componentDidMount() {
-        const { checkUserSession } = this.props;
+const App = ({ setAlert, checkUserSession, currentUser, isLoading, loadingMessage }) => {
+
+    useEffect(() => {
         checkUserSession();
-    }
+    }, [checkUserSession])
 
-    render() {
-        const { isLoading, loadingMessage } = this.props;
+    useEffect(() => {
+        if (currentUser) {
+            const { displayName } = currentUser;
+            setAlert(`Welcome, ${displayName}`)
+        }
+    }, [currentUser, setAlert])
 
-        return (
-        	<div>
-                <div>
-                    <ErrorBoundary>
-                        <Suspense fallback={<Loader />}>
-                            <Switch>
-                                <Route 
-                                    exact 
-                                    path='/'
-                                    render={() =>
-                                        <div>
-                                            <Header />
-                                            <HomePage />
-                                            <DropMenu />
-                                        </div>
-                                    }  
-                                />
-                                <Route 
-                                    exact 
-                                    path='/admin' 
-                                    render={() => 
-                                        this.props.currentUser ? (
-                                          <Redirect to={'/'}/>
-                                        ) : (
-                                          <SignIn />
-                                        )
-                                    }
-                                />
-                                <Route 
-                                    exact
-                                    path='/new-update'
-                                    render={()=>(
-                                        this.props.currentUser ? (
-                                          <NewUpdate />
-                                        ) : (
-                                          <Redirect to={'/admin'}/>
-                                        )
-                                    )}
-                                />
-                                <Redirect to='/' />
-                            </Switch>
-                        </Suspense>
-                    </ErrorBoundary>
-                    {isLoading &&
-                        <Loader message={loadingMessage} />
-                    }
-                </div>
-                <Alert />
-        	</div>
-        )
-    }
+    return (
+    	<div>
+            <div>
+                <ErrorBoundary>
+                    <Suspense fallback={<Loader />}>
+                        <Switch>
+                            <Route 
+                                exact 
+                                path='/'
+                                render={() =>
+                                    <div>
+                                        <Header />
+                                        <HomePage />
+                                        <DropMenu />
+                                    </div>
+                                }  
+                            />
+                            <Route 
+                                exact 
+                                path='/admin' 
+                                render={() => 
+                                    currentUser ? (
+                                      <Redirect to={'/'}/>
+                                    ) : (
+                                      <SignIn />
+                                    )
+                                }
+                            />
+                            <Route 
+                                exact
+                                path='/new-update'
+                                render={()=>(
+                                    currentUser ? (
+                                      <NewUpdate />
+                                    ) : (
+                                      <Redirect to={'/admin'}/>
+                                    )
+                                )}
+                            />
+                            <Redirect to='/' />
+                        </Switch>
+                    </Suspense>
+                </ErrorBoundary>
+                {isLoading &&
+                    <Loader message={loadingMessage} />
+                }
+            </div>
+            <Alert />
+    	</div>
+    )
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

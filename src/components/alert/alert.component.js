@@ -23,7 +23,7 @@ const Alert = ({ isShowing, message, toggleAlert }) => {
 
 	return (
 		<div className={`alert ${animate}`}>
-			<h5 className='message'>{ message }</h5>
+			<span className='message'>{ message }</span>
 		</div>
 	)
 }

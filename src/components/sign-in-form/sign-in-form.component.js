@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect';
 
+import Loader from '../loader/loader.component';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import { selectIsUserFetching } from '../../redux/user/user.selectors';
 import { emailSignInStart } from '../../redux/user/user.actions';
 
 import './sign-in-form.styles.scss';
+
+const mapStateToProps = createStructuredSelector({
+	isLoadingUser: selectIsUserFetching
+})
 
 const mapDispatchToProps = dispatch => ({
 	emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password}))
@@ -34,6 +41,7 @@ class SignIn extends Component {
 	}
 
 	render() {
+		const { isLoadingUser } = this.props;
 		return (
 			<div className='sign-in-form'>
 				<h2>Admin Portal</h2>
@@ -58,9 +66,13 @@ class SignIn extends Component {
 						<CustomButton inverted type='submit'> Sign In </CustomButton>
 					</div>
 				</form>
+				{
+					isLoadingUser &&
+					<Loader />
+				}
 			</div>
 		)
 	}
 }
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
