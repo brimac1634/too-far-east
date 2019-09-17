@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { addCollectionAndDocuments } from '../../firebase/firebase.utils';
 
 import { startLoading, stopLoading } from '../../redux/loading/loading.actions';
@@ -63,7 +63,9 @@ class UpdateForm extends Component {
 		const { image, title, type, externalLink, details } = this.state;
 		return (
 			<div className='update-form'>
-				<BlackLogo />
+				<Link className='logo' to={'/'}>
+					<BlackLogo />
+				</Link>
 				<form onSubmit={this.handleSubmit}>
 					<div className='form'>
 						<div className='panel'>

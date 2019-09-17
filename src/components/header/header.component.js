@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import MediaQuery from 'react-responsive';
+
+import { scrollToSection } from '../../redux/nav/nav.actions';
 
 import MenuButton from '../menu-button/menu-button.component';
 import CustomButton from '../custom-button/custom-button.component';
@@ -8,6 +10,10 @@ import { ReactComponent as WhiteLogo } from '../../assets/TFE_white_logo.svg'
 import { ReactComponent as BlackLogo } from '../../assets/TFE_black_logo.svg'
 
 import './header.styles.scss';
+
+const mapDisptachToProps = dispatch => ({
+	scrollToSection: section => dispatch(scrollToSection(section))
+})
 
 class Header extends Component {
 	state = {
@@ -27,6 +33,7 @@ class Header extends Component {
     }
 
     render() {
+    	const { scrollToSection } = this.props;
     	const { showHeader, inverted } = this.state;
     	const fade = showHeader ? 'fade-in' : 'fade-out'
 
@@ -37,13 +44,13 @@ class Header extends Component {
 					return (
 						<div className={`header ${fade} ${invert}`}>
 	    					<MenuButton inverted={inverted && !matches} />
-							<Link className='logo-container' to={'/'}>
+							<div className='logo-container' onClick={()=>scrollToSection('Home')}>
 								{
 									inverted && !matches
 									? 	<WhiteLogo />
 									: 	<BlackLogo />
 								}
-							</Link>
+							</div>
 							<div className='book-button'>
 								<CustomButton 
 									tiny
@@ -61,4 +68,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default connect(null, mapDisptachToProps)(Header);
