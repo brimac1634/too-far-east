@@ -1,5 +1,5 @@
 .loader {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -10,38 +10,59 @@
 	align-items: center;
 	animation: animate-in 400ms ease-out forwards;
 
-	.overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: white;
-		opacity: 0.8;
+	.ellipsis {
+	  display: inline-block;
+	  position: relative;
+	  width: 64px;
+	  height: 64px;
 	}
-
-	svg {
-		width: 300px;
-		height: 200px;
-		animation-delay: 400ms;
-		animation: grow 1500ms ease-in infinite alternate;
-
-		@keyframes grow {
-		    0% {
-		        -webkit-transform:scale(0.95);
-		    }
-		    100% {
-		        -webkit-transform:scale(1);
-		    }
-		}
+	.ellipsis div {
+	  position: absolute;
+	  top: 27px;
+	  width: 11px;
+	  height: 11px;
+	  border-radius: 50%;
+	  background: #555;
+	  animation-timing-function: cubic-bezier(0, 1, 1, 0);
 	}
-
-	@keyframes animate-in {
-	    0% {
-	    	opacity: 0;
-	    }
-	    100% {
-	    	opacity: 1;
-	    }
+	.ellipsis div:nth-child(1) {
+	  left: 6px;
+	  animation: ellipsis1 0.6s infinite;
+	}
+	.ellipsis div:nth-child(2) {
+	  left: 6px;
+	  animation: ellipsis2 0.6s infinite;
+	}
+	.ellipsis div:nth-child(3) {
+	  left: 26px;
+	  animation: ellipsis2 0.6s infinite;
+	}
+	.ellipsis div:nth-child(4) {
+	  left: 45px;
+	  animation: ellipsis3 0.6s infinite;
+	}
+	@keyframes ellipsis1 {
+	  0% {
+	    transform: scale(0);
+	  }
+	  100% {
+	    transform: scale(1);
+	  }
+	}
+	@keyframes ellipsis3 {
+	  0% {
+	    transform: scale(1);
+	  }
+	  100% {
+	    transform: scale(0);
+	  }
+	}
+	@keyframes ellipsis2 {
+	  0% {
+	    transform: translate(0, 0);
+	  }
+	  100% {
+	    transform: translate(19px, 0);
+	  }
 	}
 }
