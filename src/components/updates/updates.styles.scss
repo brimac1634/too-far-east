@@ -17,6 +17,7 @@
 		display: flex;
 		align-items: center;
 		overflow-x: auto;
+		scrollbar-width: none;
 		-webkit-overflow-scrolling: touch;
 
 		> :first-child {

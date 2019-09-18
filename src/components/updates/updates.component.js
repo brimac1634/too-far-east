@@ -26,7 +26,8 @@ class Updates extends Component {
 	constructor() {
 		super();
 		this.state = {
-			scroll: 0
+			scroll: 0,
+			fullyScrolled: true
 		}
 		this.list = React.createRef();
 	}
@@ -36,8 +37,19 @@ class Updates extends Component {
 		fetchUpdatesStart()
 	}
 
+	componentDidUpdate(prevProps) {
+		const { updates } = this.props;
+		const { current } = this.list;
+		if (updates !== prevProps.updates) {
+			this.setState({ fullyScrolled: current.scrollWidth < current.clientWidth})
+		}
+	}
+
 	handleListScroll = ({ target }) => {
-		this.setState({ scroll: target.scrollLeft })
+		this.setState({ 
+			scroll: target.scrollLeft,
+			fullyScrolled: target.scrollWidth - target.clientWidth === target.scrollLeft
+			})
 	}
 
 	moveList = increment => {
@@ -50,7 +62,7 @@ class Updates extends Component {
 	}
 
 	render() {
-		const { scroll } = this.state;
+		const { scroll, fullyScrolled } = this.state;
 		const { updates } = this.props;
 
 		return (
@@ -79,7 +91,7 @@ class Updates extends Component {
 											handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
 										/>
 										<RightArrow 
-											show 
+											show={!fullyScrolled} 
 											isFirst={scroll <= 60} 
 											upper={!matches}
 											handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
