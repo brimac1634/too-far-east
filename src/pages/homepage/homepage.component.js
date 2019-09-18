@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import { connect } from 'react-redux';
 import MediaQuery from 'react-responsive';
 
 import Home from '../../components/home/home.component';
 import OurStory from '../../components/our-story/our-story.component';
 import Contact from '../../components/contact/contact.component';
-import Gallery from '../../components/gallery/gallery.component';
 import Updates from '../../components/updates/updates.component';
+import ErrorBoundary from '../../components/error-boundary/error-boundary.component';
+import Loader from '../../components/loader/loader.component';
+
+const Gallery = lazy(() => import('../../components/gallery/gallery.component'))
 
 const mapStateToProps = state => ({
 	section: state.nav.section
@@ -44,7 +47,11 @@ class HomePage extends Component {
 				</div>
 				<MediaQuery minWidth={1025}>
 					<div ref={this.Gallery}>
-						<Gallery />
+						<ErrorBoundary>
+							<Suspense fallback={<Loader />}>
+								<Gallery />
+							</Suspense>
+						</ErrorBoundary>
 					</div>
 				</MediaQuery>
 				<div ref={this.Contact}>

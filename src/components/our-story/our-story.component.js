@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import MediaQuery from 'react-responsive';
 import Fade from 'react-reveal/Fade';
 
-import Gallery from '../../components/gallery/gallery.component';
+import ErrorBoundary from '../error-boundary/error-boundary.component';
+import Loader from '../loader/loader.component';
 
 import './our-story.styles.scss';
+
+const Gallery = lazy(() => import('../../components/gallery/gallery.component'))
 
 const OurStory = () => (
 	<div className='our-story'>
 		<MediaQuery maxWidth={1024}>
-			<Gallery />
+			<ErrorBoundary>
+				<Suspense fallback={<Loader />}>
+					<Gallery />
+				</Suspense>
+			</ErrorBoundary>
 		</MediaQuery>
 		<div className='text'>
 			<Fade bottom>

@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade';
 import MediaQuery from 'react-responsive';
 
 import ErrorBoundary from '../error-boundary/error-boundary.component';
+import Loader from '../loader/loader.component';
 
 import { ReactComponent as InstaIcon } from '../../assets/instagram.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg'
@@ -18,7 +19,7 @@ const Contact = () => (
 	<div className='contact'>
 		<ErrorBoundary>
 			<MediaQuery maxWidth={1024}>
-				<Suspense fallback={<div>loading map...</div>}>
+				<Suspense fallback={<Loader />}>
 					<div className='map'>
 						<MapBox />
 					</div>
@@ -78,7 +79,7 @@ const Contact = () => (
 						</div>
 					</div>
 					<MediaQuery minWidth={1025}>
-						<Suspense fallback={<div>loading map...</div>}>
+						<Suspense fallback={<Loader />}>
 							<div className='map'>
 								<MapBox />
 							</div>

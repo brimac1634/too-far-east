@@ -18,7 +18,7 @@ class ErrorBoundary extends Component {
 
 	render() {
 		if (this.state.hasErrored) {
-			return <div>Please check your internet connection</div>
+			return <div>Oops! Something has gone wrong.</div>
 		} 
 		return this.props.children
 	}
