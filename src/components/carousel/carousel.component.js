@@ -49,7 +49,8 @@ const Carousel = ({ children, showIndicator, showMoreMessage, disableLeap, disab
 			<div 
 				className="slider-wrapper"
 	          	style={{
-		            transform: `translateX(${translateValue}px)`
+					transform: `translate3d(${translateValue}px, 0, 0)`,
+					WebkitTransform: `translate3d(${translateValue}px, 0, 0)`
 	            }}
 	         >
 	            {children}

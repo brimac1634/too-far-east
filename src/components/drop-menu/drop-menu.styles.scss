@@ -16,6 +16,11 @@
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 
+	-webkit-transition: 500ms ease-in-out;
+    transition: 500ms ease-in-out;
+    -webkit-transition-property: -webkit-all;
+    transition-property: all;
+
 	&::-webkit-scrollbar {
 	  display: none;
 	}
@@ -26,6 +31,7 @@
 
 	&.show {
 		opacity: 0.9;
+		-webkit-filter: opacity(0.9);
 		transform: translate(0, 0);
 		transform: translate3d(0,0,0);
 		-webkit-transform: translate3d(0,0,0);
@@ -34,6 +40,7 @@
 
 	&.hide {
 		opacity: 0;
+		-webkit-filter: opacity(0);
 		transform: translate(0, -100%);
 		transform: translate3d(0,-100%,0);
 		-webkit-transform: translate3d(0,-100%,0);

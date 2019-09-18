@@ -9,12 +9,16 @@
 
   &.close {
     position: fixed;
-    transform: translateX(320px);
-    -webkit-transform: translateX(320px);
+    transform: translate(320px, 0);
+    transform: translate3d(320px,0,0);
+    -webkit-transform: translate3d(320px,0,0);
+    -webkit-transform: translate(320px, 0);
 
     @media screen and (max-width: 500px) {
-      transform: translateX(270px);
-      -webkit-transform: translateX(270px);
+      transform: translate(270px, 0);
+      transform: translate3d(270px,0,0);
+      -webkit-transform: translate3d(270px,0,0);
+      -webkit-transform: translate(270px, 0);
     }
 
     .menu-lines {
@@ -26,13 +30,17 @@
 
       &:before {
         background: white;
-        transform: translateY(9px) rotate(135deg);
-        -webkit-transform: translateY(9px) rotate(135deg);
+        transform: translate(0, 9px) rotate(135deg);
+        transform: translate3d(0,9px,0) rotate(135deg);
+        -webkit-transform: translate3d(0,9px,0) rotate(135deg);
+        -webkit-transform: translate(0, 9px) rotate(135deg);
       }
 
       &:after {
-        transform: translateY(-9px) rotate(-135deg);
-        -webkit-transform: translateY(-9px) rotate(-135deg);
+        transform: translate(0, -9px) rotate(-135deg);
+        transform: translate3d(0,-9px,0) rotate(-135deg);
+        -webkit-transform: translate3d(0,-9px,0) rotate(-135deg);
+        -webkit-transform: translate(0, -9px) rotate(-135deg);
       }
     }
   }
