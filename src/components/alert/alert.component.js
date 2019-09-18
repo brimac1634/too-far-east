@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => ({
 const Alert = ({ isShowing, message, toggleAlert }) => {
 	const animate = isShowing ? 'fade-in' : 'fade-out';
 
-	if (isShowing) setTimeout(()=>toggleAlert(), 5000)
+	if (isShowing) setTimeout(()=>toggleAlert(), 4000)
 
 	return (
 		<div className={`alert ${animate}`}>
