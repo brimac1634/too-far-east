@@ -1,6 +1,7 @@
 .menu {
   display: flex;
   align-items: center;
+  outline: none;
   height: 50%;
   width: auto;
   z-index: 11;
@@ -52,6 +53,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      outline: none;
 
       .menu-lines {
         position: relative;

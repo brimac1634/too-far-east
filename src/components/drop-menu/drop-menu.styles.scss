@@ -16,11 +16,6 @@
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 
-	-webkit-transition: 500ms ease-in-out;
-    transition: 500ms ease-in-out;
-    -webkit-transition-property: -webkit-all;
-    transition-property: all;
-
 	&::-webkit-scrollbar {
 	  display: none;
 	}

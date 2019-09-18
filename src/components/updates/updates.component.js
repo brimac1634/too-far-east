@@ -40,7 +40,7 @@ class Updates extends Component {
 	componentDidUpdate(prevProps) {
 		const { updates } = this.props;
 		const { current } = this.list;
-		if (updates !== prevProps.updates) {
+		if (this.list.current && updates !== prevProps.updates) {
 			this.setState({ fullyScrolled: current.scrollWidth < current.clientWidth})
 		}
 	}
