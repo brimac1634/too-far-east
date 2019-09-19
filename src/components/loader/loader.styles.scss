@@ -1,5 +1,4 @@
 .loader {
-	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -9,6 +8,14 @@
 	justify-content: center;
 	align-items: center;
 	animation: animate-in 400ms ease-out forwards;
+
+	&.fixed {
+		position: fixed;
+	}
+
+	&.absolute {
+		position: absolute;
+	}
 
 	.ellipsis {
 	  display: inline-block;

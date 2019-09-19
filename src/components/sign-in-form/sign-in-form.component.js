@@ -68,7 +68,7 @@ class SignIn extends Component {
 				</form>
 				{
 					isLoadingUser &&
-					<Loader />
+					<Loader fixed />
 				}
 			</div>
 		)

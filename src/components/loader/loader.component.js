@@ -2,8 +2,8 @@ import React from 'react';
 
 import './loader.styles.scss';
 
-const Loader = ({ message }) => (
-	<div className='loader'>
+const Loader = ({ message, fixed }) => (
+	<div className={`loader ${fixed ? 'fixed' : 'absolute'}`}>
 		<div className='ellipsis'>
 			<div></div>
 			<div></div>

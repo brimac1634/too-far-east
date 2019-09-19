@@ -88,7 +88,7 @@ const App = ({ setAlert, checkUserSession, currentUser, isLoading, loadingMessag
                     </Suspense>
                 </ErrorBoundary>
                 {isLoading &&
-                    <Loader message={loadingMessage} />
+                    <Loader fixed message={loadingMessage} />
                 }
             </div>
             <Alert />
