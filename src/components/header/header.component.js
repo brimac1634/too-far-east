@@ -27,7 +27,7 @@ class Header extends Component {
 
     checkWindowScroll = () => {
     	this.setState({ 
-    		showHeader: window.pageYOffset >= window.innerHeight - 40,
+    		showHeader: window.pageYOffset >= window.innerHeight - 80,
     		inverted: window.pageYOffset >= window.innerHeight * 2 - 40 && window.pageYOffset <= window.innerHeight * 3 - 40
     	})
     }
