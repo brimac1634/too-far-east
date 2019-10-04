@@ -8,14 +8,16 @@ import Carousel from '../carousel/carousel.component';
 import RightArrow from '../arrows/right-arrow.component';
 import LeftArrow from '../arrows/left-arrow.component';
 import UpdatesItem from '../updates-item/updates-item.component';
+import Loader from '../loader/loader.component';
 
-import { selectUpdates } from '../../redux/updates/updates.selectors';
+import { selectUpdates, selectAreUpdatesFetching } from '../../redux/updates/updates.selectors';
 import { fetchUpdatesStart } from '../../redux/updates/updates.actions';
 
 import './updates.styles.scss';
 
 const mapStateToProps = createStructuredSelector({
-	updates: selectUpdates
+	updates: selectUpdates,
+	updatesAreFetching: selectAreUpdatesFetching
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -63,7 +65,7 @@ class Updates extends Component {
 
 	render() {
 		const { scroll, fullyScrolled } = this.state;
-		const { updates } = this.props;
+		const { updates, updatesAreFetching } = this.props;
 
 		return (
 			<Fade>
@@ -113,6 +115,10 @@ class Updates extends Component {
 											</Carousel>
 										}
 									</div>
+							}
+							{
+								updatesAreFetching &&
+								<Loader />
 							}
 						</div>
 					}

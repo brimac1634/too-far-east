@@ -20,7 +20,7 @@ const UpdatesItem = ({ title, image, date, type, externalLink, details}) => (
 							externalLink &&
 							<CustomButton 
 								inverted 
-								padding='0 15px'
+								padding='0 10px'
 								tiny={matches}
 								href={externalLink}
 							>
