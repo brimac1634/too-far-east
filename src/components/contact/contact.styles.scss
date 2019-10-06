@@ -34,7 +34,7 @@
 		}
 
 		@media screen and (max-width: 500px) {
-			padding: 40px 40px 20px 40px;
+			padding: 40px 0 20px 0;
 		}
 	}
 
@@ -99,6 +99,11 @@
 			@media screen and (max-width: 768px) {
 				margin-right: 8px;
 			}
+		}
+
+		.pin {
+			width: 18px;
+			height: 18px;
 		}
 	}
 }

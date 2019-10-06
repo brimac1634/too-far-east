@@ -11,9 +11,10 @@
 
 	@media screen and (max-width: 500px) {
 		width: 100%;
+		min-width: unset;
 		align-items: center;
 		margin-right: 0;
-		height: calc(100vh - 80px);
+		min-height: calc(100vh - 80px);
 		display: inline-flex;
 		vertical-align: top;
 		white-space: normal;
