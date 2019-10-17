@@ -43,7 +43,7 @@ class Updates extends Component {
 		const { updates } = this.props;
 		const { current } = this.list;
 		if (this.list.current && updates !== prevProps.updates) {
-			this.setState({ fullyScrolled: current.scrollWidth < current.clientWidth})
+			this.setState({ fullyScrolled: current.scrollWidth <= current.clientWidth})
 		}
 	}
 
