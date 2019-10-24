@@ -6,13 +6,14 @@ import Loader from '../loader/loader.component';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { selectIsUserFetching } from '../../redux/user/user.selectors';
+import { selectIsUserFetching, selectUserError } from '../../redux/user/user.selectors';
 import { emailSignInStart } from '../../redux/user/user.actions';
 
 import './sign-in-form.styles.scss';
 
 const mapStateToProps = createStructuredSelector({
-	isLoadingUser: selectIsUserFetching
+	isLoadingUser: selectIsUserFetching,
+	userError: selectUserError
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -41,7 +42,7 @@ class SignIn extends Component {
 	}
 
 	render() {
-		const { isLoadingUser } = this.props;
+		const { isLoadingUser, userError } = this.props;
 		return (
 			<div className='sign-in-form'>
 				<h2>Admin Portal</h2>
@@ -62,6 +63,10 @@ class SignIn extends Component {
 						handleChange={this.handleChange}
 						required 
 					/>
+					{
+						userError &&
+						<span className='error'>{userError}</span>
+					}
 					<div className='buttons'>
 						<CustomButton inverted type='submit'> Sign In </CustomButton>
 					</div>

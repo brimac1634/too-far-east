@@ -25,6 +25,10 @@ class Header extends Component {
         window.addEventListener('scroll', this.checkWindowScroll)
     }
 
+    componentWillUnmount() {
+    	window.removeEventListener('scroll', this.checkWindowScroll)
+    }
+
     checkWindowScroll = () => {
     	this.setState({ 
     		showHeader: window.pageYOffset >= window.innerHeight - 80,

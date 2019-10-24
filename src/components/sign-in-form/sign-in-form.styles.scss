@@ -15,4 +15,10 @@
 		display: flex;
 		justify-content: space-between;
 	}
+
+	.error {
+		display: block;
+		color: red;
+		margin-bottom: 10px;
+	}
 }
