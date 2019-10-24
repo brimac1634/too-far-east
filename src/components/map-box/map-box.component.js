@@ -41,7 +41,7 @@ class MapBox extends Component {
     					<ReactMapGL
 						    { ...viewport }
 						    width={matches ? window.innerWidth : window.innerWidth * 0.6}
-						    height={matches ? window.innerHeight * 0.4 : 380}
+						    height={matches ? window.innerHeight * 0.4 : window.innerHeight * 0.55}
 						    scrollZoom={false}
 						    mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
 						    onViewportChange={(viewport) => {
