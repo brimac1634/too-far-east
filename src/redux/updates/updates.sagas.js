@@ -13,7 +13,8 @@ export function* fetchUpdatesAsync() {
 	try {
 		const updatesRef = firestore.collection('updates');
 		const snapshot = yield updatesRef.orderBy('date', 'desc').limit(8).get();
-		const updates = yield formatUpdates(snapshot);
+		let updates = yield formatUpdates(snapshot);
+		updates = updates.length ? updates : null;
 		yield put(fetchUpdatesSuccess(updates));
 	} catch (err) {
 		yield put(fetchUpdatesFailure(err.message))

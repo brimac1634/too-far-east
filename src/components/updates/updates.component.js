@@ -63,66 +63,70 @@ class Updates extends Component {
 		})
 	}
 
+
 	render() {
 		const { scroll, fullyScrolled } = this.state;
 		const { updates, updatesAreFetching } = this.props;
-
 		return (
 			<Fade>
-				<MediaQuery minWidth={501}>
-					{(matches) => 
-						<div>
-							{
-								matches
-								?	<div className='updates'>
-										<div 
-											ref={this.list} 
-											onScroll={this.handleListScroll} 
-											className='update-list'
-										>
-											{
-												updates &&
-												updates.map(({ ...props }, i) => (
-													<UpdatesItem key={i} {...props} />
-												))
-											}
-										</div>
-										<LeftArrow 
-											show={scroll >= 60} 
-											upper={!matches}
-											handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
-										/>
-										<RightArrow 
-											show={!fullyScrolled} 
-											isFirst={scroll <= 60} 
-											upper={!matches}
-											handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
-										/>
-									</div>
-								: 	<div className='updates-mobile'>
-										{
-											updates &&
-											<Carousel 
-												disablePlay
-												disableLeap
-												showMoreMessage
+				{
+					updates
+					? <MediaQuery minWidth={501}>
+						{(matches) => 
+							<div>
+								{
+									matches
+									?	<div className='updates'>
+											<div 
+												ref={this.list} 
+												onScroll={this.handleListScroll} 
+												className='update-list'
 											>
 												{
+													updates &&
 													updates.map(({ ...props }, i) => (
 														<UpdatesItem key={i} {...props} />
 													))
 												}
-											</Carousel>
-										}
-									</div>
-							}
-							{
-								updatesAreFetching &&
-								<Loader />
-							}
-						</div>
-					}
-				</MediaQuery>
+											</div>
+											<LeftArrow 
+												show={scroll >= 60} 
+												upper={!matches}
+												handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
+											/>
+											<RightArrow 
+												show={!fullyScrolled} 
+												isFirst={scroll <= 60} 
+												upper={!matches}
+												handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
+											/>
+										</div>
+									: 	<div className='updates-mobile'>
+											{
+												updates &&
+												<Carousel 
+													disablePlay
+													disableLeap
+													showMoreMessage
+												>
+													{
+														updates.map(({ ...props }, i) => (
+															<UpdatesItem key={i} {...props} />
+														))
+													}
+												</Carousel>
+											}
+										</div>
+								}
+								{
+									updatesAreFetching &&
+									<Loader />
+								}
+							</div>
+						}
+					</MediaQuery>
+					: <div></div>
+				}
 			</Fade>
 		)
 	}
