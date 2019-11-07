@@ -11,6 +11,7 @@ import galleryMobile1 from '../../assets/TFE_mobile_gallery_1.jpg';
 import galleryMobile2 from '../../assets/TFE_mobile_gallery_2.jpg';
 import galleryMobile3 from '../../assets/TFE_mobile_gallery_3.jpg';
 import galleryMobile4 from '../../assets/TFE_mobile_gallery_4.jpg';
+
 import './gallery.styles.scss';
 
 const Gallery = () => {
