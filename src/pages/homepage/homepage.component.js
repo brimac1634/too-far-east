@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 import { connect } from 'react-redux';
 import MediaQuery from 'react-responsive';
 
 import Home from '../../components/home/home.component';
-import OurStory from '../../components/our-story/our-story.component';
-import Gallery from '../../components/gallery/gallery.component';
-import Contact from '../../components/contact/contact.component';
-import Updates from '../../components/updates/updates.component';
+// import OurStory from '../../components/our-story/our-story.component';
+// import Gallery from '../../components/gallery/gallery.component';
+// import Contact from '../../components/contact/contact.component';
+// import Updates from '../../components/updates/updates.component';
+
+const OurStory = lazy(()=>import('../../components/our-story/our-story.component'));
+const Gallery = lazy(()=>import('../../components/gallery/gallery.component'));
+const Contact = lazy(()=>import('../../components/contact/contact.component'));
+const Updates = lazy(()=>import('../../components/updates/updates.component'));
 
 const mapStateToProps = state => ({
 	section: state.nav.section
