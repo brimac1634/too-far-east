@@ -1,12 +1,12 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade';
 import MediaQuery from 'react-responsive';
 
 import ParallaxRow from '../../components/parallax-row/parallax-row.component';
 import CustomButton from '../custom-button/custom-button.component';
 import MenuButton from '../menu-button/menu-button.component';
-import { ReactComponent as Logo } from '../../assets/TFE_white_logo.svg'
+import Enter from '../../components/enter/enter.component';
 
+import { ReactComponent as Logo } from '../../assets/TFE_white_logo.svg'
 import homeImage from '../../assets/TFE_desktop_homepage_image.jpg'
 import homeImageMobile from '../../assets/TFE_mobile_homepage_image.jpg'
 import './home.styles.scss';
@@ -21,7 +21,7 @@ const Home = () => (
 		<div className='menu-button-header'>
 			<MenuButton inverted />
 		</div>
-		<Fade>
+		<Enter enterStyle='fade-up' duration='1000ms'>
 			<div className='center'>
 				<div className='logo-container'>
 					<Logo />
@@ -33,7 +33,7 @@ const Home = () => (
 					Book Now
 				</CustomButton>
 			</div>
-		</Fade>
+		</Enter>
 		<div className='scroll-message'>
 			<span>scroll down for more</span>
 		</div>

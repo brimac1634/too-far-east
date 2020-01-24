@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import Fade from 'react-reveal/Fade';
 import MediaQuery from 'react-responsive';
 
 import Carousel from '../carousel/carousel.component';
@@ -9,6 +8,7 @@ import RightArrow from '../arrows/right-arrow.component';
 import LeftArrow from '../arrows/left-arrow.component';
 import UpdatesItem from '../updates-item/updates-item.component';
 import Loader from '../loader/loader.component';
+import Enter from '../../components/enter/enter.component';
 
 import { selectUpdates, selectAreUpdatesFetching } from '../../redux/updates/updates.selectors';
 import { fetchUpdatesStart } from '../../redux/updates/updates.actions';
@@ -68,7 +68,7 @@ class Updates extends Component {
 		const { scroll, fullyScrolled } = this.state;
 		const { updates, updatesAreFetching } = this.props;
 		return (
-			<Fade>
+			<Enter duration='1000ms'>
 				{
 					updates
 					? <MediaQuery minWidth={501}>
@@ -127,7 +127,7 @@ class Updates extends Component {
 					</MediaQuery>
 					: <div></div>
 				}
-			</Fade>
+			</Enter>
 		)
 	}
 }

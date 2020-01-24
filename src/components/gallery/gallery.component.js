@@ -2,6 +2,7 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import Carousel from '../carousel/carousel.component';
+import Enter from '../../components/enter/enter.component';
 
 import gallery1 from '../../assets/TFE_gallery_1.jpg';
 import gallery2 from '../../assets/TFE_gallery_2.jpg';
@@ -21,19 +22,21 @@ const Gallery = () => {
 		: [gallery1, gallery2, gallery3, gallery4]
 
 	return (
-		<div className='gallery'>
-			<Carousel showIndicator>
-	            {
-	              images.map((image, i) => (
-	                <div 
-	                	className='image'
-	                	style={{backgroundImage: `url(${image})`}} 
-	                	key={i}  
-	                />
-	              ))
-	            }
-	        </Carousel>
-        </div>
+		<Enter lazy>
+			<div className='gallery'>
+				<Carousel showIndicator>
+		            {
+		              images.map((image, i) => (
+		                <div 
+		                	className='image'
+		                	style={{backgroundImage: `url(${image})`}} 
+		                	key={i}  
+		                />
+		              ))
+		            }
+		        </Carousel>
+	        </div>
+        </Enter>
 	)
 }
 

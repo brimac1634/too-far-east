@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from 'react';
-import Fade from 'react-reveal/Fade';
 import MediaQuery from 'react-responsive';
 
 import ErrorBoundary from '../error-boundary/error-boundary.component';
 import Loader from '../loader/loader.component';
+import Enter from '../../components/enter/enter.component';
 
 import { ReactComponent as InstaIcon } from '../../assets/instagram.svg'
 import { ReactComponent as FacebookIcon } from '../../assets/facebook.svg'
@@ -25,7 +25,7 @@ const Contact = () => (
 					</div>
 				</Suspense>
 			</MediaQuery>
-			<Fade>
+			<Enter enterStyle='fade-up' duration='1000ms'>
 				<div className='heading'>
 					<h1>Contact Us</h1>
 					<div className='row'>
@@ -35,8 +35,8 @@ const Contact = () => (
 						</span>
 					</div>
 				</div>
-			</Fade>
-			<Fade>
+			</Enter>
+			<Enter enterStyle='fade-up' duration='1000ms'>
 				<div className='bottom'>
 					<div className='details'>
 						<div className='social'>
@@ -86,7 +86,7 @@ const Contact = () => (
 						</Suspense>
 					</MediaQuery>
 				</div>
-			</Fade>
+			</Enter>
 		</ErrorBoundary>
 	</div>
 )
