@@ -92,13 +92,13 @@ class Updates extends Component {
 											<LeftArrow 
 												show={scroll >= 60} 
 												upper={!matches}
-												handleClick={()=>this.moveList(matches ? -320 : -window.innerWidth)} 
+												handleClick={()=>this.moveList(-window.innerWidth)} 
 											/>
 											<RightArrow 
 												show={!fullyScrolled} 
 												isFirst={scroll <= 60} 
 												upper={!matches}
-												handleClick={()=>this.moveList(matches ? 320 : window.innerWidth)} 
+												handleClick={()=>this.moveList(window.innerWidth)} 
 											/>
 										</div>
 									: 	<div className='updates-mobile'>
