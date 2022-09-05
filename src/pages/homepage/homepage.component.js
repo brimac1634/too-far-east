@@ -6,6 +6,7 @@ import Home from '../../components/home/home.component';
 import OurStory from '../../components/our-story/our-story.component';
 import Contact from '../../components/contact/contact.component';
 import Updates from '../../components/updates/updates.component';
+import VideoSection from '../../components/video-section/video-section';
 
 const Gallery = lazy(()=>import('../../components/gallery/gallery.component'));
 
@@ -17,6 +18,7 @@ class HomePage extends Component {
 	constructor(props) {
 		super(props);
 		this.Home = React.createRef();
+		this.Video = React.createRef();
 		this.OurStory = React.createRef();
 		this.Gallery = React.createRef();
 		this.Contact = React.createRef();
@@ -39,6 +41,9 @@ class HomePage extends Component {
 			<div>
 				<div ref={this.Home}>
 					<Home />
+				</div>
+				<div ref={this.Video}>
+					<VideoSection />
 				</div>
 				<div ref={this.OurStory}>
 					<OurStory />

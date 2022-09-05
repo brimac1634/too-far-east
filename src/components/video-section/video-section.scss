@@ -1,0 +1,16 @@
+.video-section {
+    margin: 6rem 1rem 2rem 1rem;
+
+    @media screen and (max-width: 1000px) {
+        margin: 10rem 1rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        margin: 8rem 1rem;
+    }
+
+    .video {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -31,7 +31,7 @@ const Contact = () => (
 					<div className='row'>
 						<PinIcon className='pin' />
 						<span>
-							Unit 15C, 4/F, 15 Wellington Street, Central, Hong Kong
+							4/F, 15C Wellington Street, Central, Hong Kong
 						</span>
 					</div>
 				</div>
