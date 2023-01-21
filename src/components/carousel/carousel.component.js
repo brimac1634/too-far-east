@@ -9,17 +9,18 @@ const Carousel = ({ children, showIndicator, showMoreMessage, disableLeap, disab
 	const [index, setIndex] = useState(0);
 	const [translateValue, setTranslation] = useState(0);
 	const galleryItem = useRef(null);
-
+	const flatChildren = children.flat();
+	
 	const nextImage = useCallback(() => {
 		const { width } = galleryItem.current.getBoundingClientRect()
-	    if (index === children.length - 1) {
+	    if (index === flatChildren.length - 1) {
 			setIndex(0)
 			setTranslation(0)
 		} else {
 			setTranslation((index + 1) * -width)
 			setIndex(index + 1)
 		} 
-	}, [index, children])
+	}, [index, flatChildren])
 	
 	useEffect(() => {
 		if (disablePlay) return;
@@ -30,8 +31,8 @@ const Carousel = ({ children, showIndicator, showMoreMessage, disableLeap, disab
 	const previousImage = () => {
 		const { width } = galleryItem.current.getBoundingClientRect()
 		if (index === 0) {
-			setIndex(children.length - 1)
-			setTranslation(-width * (children.length - 1))
+			setIndex(flatChildren.length - 1)
+			setTranslation(-width * (flatChildren.length - 1))
 		} else {
 			setTranslation((index - 1) * -width)
 			setIndex(index - 1)
@@ -53,14 +54,14 @@ const Carousel = ({ children, showIndicator, showMoreMessage, disableLeap, disab
 					WebkitTransform: `translate(${translateValue}px, 0)`
 	            }}
 	         >
-	            {children}
+	            {flatChildren}
 	        </div>
 			<LeftArrow 
 				show={!disableLeap || (disableLeap && index !== 0)} 
 				handleClick={previousImage} 
 			/>
 			<RightArrow 
-				show={!disableLeap || (disableLeap && index !== (children.length - 1))} 
+				show={!disableLeap || (disableLeap && index !== (flatChildren.length - 1))} 
 				isFirst={showMoreMessage && index === 0} 
 				handleClick={nextImage} 
 			/>
@@ -68,7 +69,7 @@ const Carousel = ({ children, showIndicator, showMoreMessage, disableLeap, disab
 				showIndicator &&
 				<div className='indicators'>
 					{
-						children.map((image, i) => {
+						flatChildren.map((image, i) => {
 							const isCurrent = i === index;
 							return (
 								<div 

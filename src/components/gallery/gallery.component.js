@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import Carousel from '../carousel/carousel.component';
 import Enter from '../../components/enter/enter.component';
+import VideoSection from '../../components/video-section/video-section';
 
 import gallery1 from '../../assets/TFE_gallery_1.jpg';
 import gallery2 from '../../assets/TFE_gallery_2.jpg';
@@ -24,7 +25,7 @@ const Gallery = () => {
 	return (
 		<Enter lazy>
 			<div className='gallery'>
-				<Carousel showIndicator>
+				<Carousel showIndicator disablePlay>
 		            {
 		              images.map((image, i) => (
 		                <div 
@@ -34,6 +35,9 @@ const Gallery = () => {
 		                />
 		              ))
 		            }
+					<div className='image'>
+						<VideoSection />
+					</div>
 		        </Carousel>
 	        </div>
         </Enter>

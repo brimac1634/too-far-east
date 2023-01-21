@@ -2,11 +2,10 @@ import React, { Component, lazy } from 'react';
 import { connect } from 'react-redux';
 import MediaQuery from 'react-responsive';
 
+import Contact from '../../components/contact/contact.component';
 import Home from '../../components/home/home.component';
 import OurStory from '../../components/our-story/our-story.component';
-import Contact from '../../components/contact/contact.component';
 import Updates from '../../components/updates/updates.component';
-import VideoSection from '../../components/video-section/video-section';
 
 const Gallery = lazy(()=>import('../../components/gallery/gallery.component'));
 
@@ -14,11 +13,12 @@ const mapStateToProps = state => ({
 	section: state.nav.section
 })
 
+export const GALLERY_SECTION_WIDTH = 1025;
+
 class HomePage extends Component {
 	constructor(props) {
 		super(props);
 		this.Home = React.createRef();
-		this.Video = React.createRef();
 		this.OurStory = React.createRef();
 		this.Gallery = React.createRef();
 		this.Contact = React.createRef();
@@ -42,13 +42,10 @@ class HomePage extends Component {
 				<div ref={this.Home}>
 					<Home />
 				</div>
-				<div ref={this.Video}>
-					<VideoSection />
-				</div>
 				<div ref={this.OurStory}>
 					<OurStory />
 				</div>
-				<MediaQuery minWidth={1025}>
+				<MediaQuery minWidth={GALLERY_SECTION_WIDTH}>
 					<div ref={this.Gallery}>
 						<Gallery />
 					</div>
