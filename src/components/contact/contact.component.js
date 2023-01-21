@@ -28,11 +28,29 @@ const Contact = () => (
 			<Enter enterStyle='fade-up' duration='1000ms'>
 				<div className='heading'>
 					<h1>Contact Us</h1>
-					<div className='row'>
-						<PinIcon className='pin' />
-						<span>
-							4/F, 15C Wellington Street, Central, Hong Kong
-						</span>
+					<div className='address-row'>
+						<div className='inner-row'>
+							<PinIcon className='pin' />
+							<span>
+								4/F, 15C Wellington Street, Central, Hong Kong
+							</span>
+						</div>
+						<div className='inner-row'>
+							<PhoneIcon />
+							<a href='tel:+852-9337-9868'>+852-9337-9868</a>
+						</div>
+					</div>
+					<div className='address-row'>
+						<div className='inner-row'>
+							<PinIcon className='pin' />
+							<span>
+								G/F, 180 Wellington Street, Sheung Wan, Hong Kong
+							</span>
+						</div>
+						<div className='inner-row'>
+							<PhoneIcon />
+							<a href='tel:+852-5795-3579'>+852-5795-3579</a>
+						</div>
 					</div>
 				</div>
 			</Enter>
@@ -49,10 +67,6 @@ const Contact = () => (
 								>
 									info@toofareastbarber.com
 								</a>
-							</div>
-							<div className='row'>
-								<PhoneIcon />
-								<a href='tel:+852-9337-9868'>+852-9337-9868</a>
 							</div>
 							<div className='row'>
 								<FacebookIcon />
