@@ -1,0 +1,14 @@
+.home-page {
+    position: relative;
+    padding-bottom: 30px;
+
+    .creator-link {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: block;
+        padding: 0.5rem;
+        font-size: 12px;
+        text-align: right;
+    }
+}

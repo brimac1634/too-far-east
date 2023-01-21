@@ -7,6 +7,8 @@ import Home from '../../components/home/home.component';
 import OurStory from '../../components/our-story/our-story.component';
 import Updates from '../../components/updates/updates.component';
 
+import './homepage.styles.scss';
+
 const Gallery = lazy(()=>import('../../components/gallery/gallery.component'));
 
 const mapStateToProps = state => ({
@@ -38,7 +40,7 @@ class HomePage extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='home-page'>
 				<div ref={this.Home}>
 					<Home />
 				</div>
@@ -56,6 +58,14 @@ class HomePage extends Component {
 				<div ref={this.Updates}>
 					<Updates />
 				</div>
+				<a 
+					href='https://bmacpherson.com' 
+					target='_blank' 
+					rel='noopener noreferrer'
+					className='creator-link'
+				>
+					built by bmacpherson.com
+				</a>
 			</div>
 		)
 	}
