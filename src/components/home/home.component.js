@@ -29,6 +29,11 @@ const Home = () => (
 				<CustomButton 
 					large
 					href='https://toofareastbarber.resurva.com/book'
+					onClick={() => {
+						if (window.gtag) {
+							window.gtag('event', 'conversion', {'send_to': 'AW-742880733/zAE2CKSoxYkYEN3rneIC'});
+						}
+					}}
 				>
 					Book Now
 				</CustomButton>
