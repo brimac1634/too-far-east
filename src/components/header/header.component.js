@@ -8,6 +8,7 @@ import MenuButton from '../menu-button/menu-button.component';
 import CustomButton from '../custom-button/custom-button.component';
 import { ReactComponent as WhiteLogo } from '../../assets/TFE_white_logo.svg'
 import { ReactComponent as BlackLogo } from '../../assets/TFE_black_logo.svg'
+import GtagService from '../../services/gtag.service';
 
 import './header.styles.scss';
 
@@ -60,6 +61,7 @@ class Header extends Component {
 									tiny
 									href='https://toofareastbarber.resurva.com/book' 
 									inverted={!inverted || matches}
+									onClick={GtagService.trackBookNow}
 								>
 									{matches ? 'Book' : 'Book Now'}
 								</CustomButton>

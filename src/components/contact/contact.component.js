@@ -31,9 +31,13 @@ const Contact = () => (
 					<div className='address-row'>
 						<div className='inner-row'>
 							<PinIcon className='pin' />
-							<span>
-								4/F, 15C Wellington Street, Central, Hong Kong
-							</span>
+							<a href='https://g.co/kgs/PwMtDT' target='_blank' rel='noopener noreferrer'>
+								<strong>Central Location:</strong>
+								<MediaQuery maxWidth={1024}>
+									<br/>
+								</MediaQuery>
+								{' '}4/F, 15C Wellington Street
+							</a>
 						</div>
 						<div className='inner-row'>
 							<PhoneIcon />
@@ -43,9 +47,13 @@ const Contact = () => (
 					<div className='address-row'>
 						<div className='inner-row'>
 							<PinIcon className='pin' />
-							<span>
-								G/F, 180 Wellington Street, Sheung Wan, Hong Kong
-							</span>
+							<a href='https://g.co/kgs/3AfsQu' target='_blank' rel='noopener noreferrer'>
+								<strong>Sheung Wan Location:</strong>
+								<MediaQuery maxWidth={1024}>
+									<br/>
+								</MediaQuery>
+								{' '}G/F, 180 Wellington Street
+							</a>
 						</div>
 						<div className='inner-row'>
 							<PhoneIcon />

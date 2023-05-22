@@ -10,6 +10,7 @@ import { ReactComponent as Logo } from '../../assets/TFE_white_logo.svg'
 import homeImage from '../../assets/TFE_desktop_homepage_image.jpg'
 import homeImageMobile from '../../assets/TFE_mobile_homepage_image.jpg'
 import './home.styles.scss';
+import GtagService from '../../services/gtag.service';
 
 const Home = () => (
 	<div className='home'>
@@ -29,11 +30,7 @@ const Home = () => (
 				<CustomButton 
 					large
 					href='https://toofareastbarber.resurva.com/book'
-					onClick={() => {
-						if (window.gtag) {
-							window.gtag('event', 'conversion', {'send_to': 'AW-742880733/zAE2CKSoxYkYEN3rneIC'});
-						}
-					}}
+					onClick={GtagService.trackBookNow}
 				>
 					Book Now
 				</CustomButton>

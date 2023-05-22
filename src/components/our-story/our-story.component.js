@@ -23,7 +23,10 @@ const OurStory = () => (
 				<h1>OUR STORY</h1>
 			</Enter>
 			<Enter enterStyle='fade-up' duration='1000ms'>
-				<p>Too Far East Barber & Co. was founded by two individuals who barbered side by side from the day they entered the industry. One with deep roots in Hong Kong and the other hailing from Canada; both have immense respect for the Cantonese and Shanghainese barbers that were here before them. Naturally, Too Far East became a barbershop where East meets with West and where the old is weaved with the new. It represents their journey of going so far East that they come out West.
+				<p>
+					Too Far East Barber & Co. draws inspiration from the saying "Too Far East is West," which conveys the notion that if we travel far far away, life will inevitably lead us back to where we started. This philosophy reminds us to respect the old and embrace the new; compelling us to pay tribute to a timeless era of Hong Kong barbershops, expressed in a modern way.  
+					<br/><br/>
+					At Too Far East Barber & Co., customers are always welcomed with friendly vibes and complimentary drinks. Expect a unique grooming experience that blends classic and contemporary elements, while perfectly capturing the essence of our boundless journey.
 				</p>
 			</Enter>
 		</div>
