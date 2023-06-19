@@ -12,6 +12,7 @@ import { ReactComponent as MailIcon } from '../../assets/email.svg'
 import { ReactComponent as PhoneIcon } from '../../assets/phone.svg'
 
 import './contact.styles.scss';
+import GtagService from '../../services/gtag.service';
 
 const MapBox = lazy(() => import('../map-box/map-box.component'))
 
@@ -31,7 +32,7 @@ const Contact = () => (
 					<div className='address-row'>
 						<div className='inner-row'>
 							<PinIcon className='pin' />
-							<a href='https://g.co/kgs/PwMtDT' target='_blank' rel='noopener noreferrer'>
+							<a href='https://g.co/kgs/PwMtDT' target='_blank' rel='noopener noreferrer' onClick={GtagService.trackCentralContactEvent}>
 								<strong>Central Location:</strong>
 								<MediaQuery maxWidth={1024}>
 									<br/>
@@ -47,7 +48,7 @@ const Contact = () => (
 					<div className='address-row'>
 						<div className='inner-row'>
 							<PinIcon className='pin' />
-							<a href='https://g.co/kgs/3AfsQu' target='_blank' rel='noopener noreferrer'>
+							<a href='https://g.co/kgs/3AfsQu' target='_blank' rel='noopener noreferrer' onClick={GtagService.trackSheungWanContactEvent}>
 								<strong>Sheung Wan Location:</strong>
 								<MediaQuery maxWidth={1024}>
 									<br/>

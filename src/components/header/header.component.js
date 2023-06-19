@@ -61,7 +61,7 @@ class Header extends Component {
 									tiny
 									href='https://toofareastbarber.resurva.com/book' 
 									inverted={!inverted || matches}
-									onClick={GtagService.trackBookNow}
+									onClick={GtagService.trackBookNowEvent}
 								>
 									{matches ? 'Book' : 'Book Now'}
 								</CustomButton>

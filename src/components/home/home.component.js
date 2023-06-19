@@ -30,7 +30,7 @@ const Home = () => (
 				<CustomButton 
 					large
 					href='https://toofareastbarber.resurva.com/book'
-					onClick={GtagService.trackBookNow}
+					onClick={GtagService.trackBookNowEvent}
 				>
 					Book Now
 				</CustomButton>
