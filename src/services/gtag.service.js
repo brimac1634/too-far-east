@@ -9,7 +9,7 @@ class GtagService {
         GtagService._trackConversion('WMvSCOnf96EYEN3rneIC');
     }
 
-    static trackCentralContactEvent() {
+    static trackCausewayBayContactEvent() {
         GtagService._trackConversion('p5OACOXJm6QYEN3rneIC');
     }
 

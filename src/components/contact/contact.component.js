@@ -32,24 +32,8 @@ const Contact = () => (
 					<div className='address-row'>
 						<div className='inner-row'>
 							<PinIcon className='pin' />
-							<a href='https://g.co/kgs/PwMtDT' target='_blank' rel='noopener noreferrer' onClick={GtagService.trackCentralContactEvent}>
-								<strong>Central Location:</strong>
-								<MediaQuery maxWidth={1024}>
-									<br/>
-								</MediaQuery>
-								{' '}4/F, 15C Wellington Street
-							</a>
-						</div>
-						<div className='inner-row'>
-							<PhoneIcon />
-							<a href='tel:+852-9337-9868'>+852-9337-9868</a>
-						</div>
-					</div>
-					<div className='address-row'>
-						<div className='inner-row'>
-							<PinIcon className='pin' />
-							<a href='https://g.co/kgs/3AfsQu' target='_blank' rel='noopener noreferrer' onClick={GtagService.trackSheungWanContactEvent}>
-								<strong>Sheung Wan Location:</strong>
+							<a href='https://maps.app.goo.gl/maMfZXGJN1cXfouT7' target='_blank' rel='noopener noreferrer' onClick={GtagService.trackSheungWanContactEvent}>
+								<strong>Central | Sheung Wan Location:</strong>
 								<MediaQuery maxWidth={1024}>
 									<br/>
 								</MediaQuery>
@@ -59,6 +43,22 @@ const Contact = () => (
 						<div className='inner-row'>
 							<PhoneIcon />
 							<a href='tel:+852-5795-3579'>+852-5795-3579</a>
+						</div>
+					</div>
+					<div className='address-row'>
+						<div className='inner-row'>
+							<PinIcon className='pin' />
+							<a href='https://maps.app.goo.gl/HZPvh4o6NFMiXigu9' target='_blank' rel='noopener noreferrer' onClick={GtagService.trackCausewayBayContactEvent}>
+								<strong>Causeway Bay Location:</strong>
+								<MediaQuery maxWidth={1024}>
+									<br/>
+								</MediaQuery>
+								{' '}3/F, 14 Kai Chiu Road
+							</a>
+						</div>
+						<div className='inner-row'>
+							<PhoneIcon />
+							<a href='tel:+852-9330-3851'>+852-9330-3851</a>
 						</div>
 					</div>
 				</div>

@@ -14,9 +14,9 @@ class MapBox extends Component {
 	    viewport: {
 	        width: 900,
 	        height: 380,
-	        latitude: 22.2835,
-	        longitude: 114.1545,
-	        zoom: 15
+	        latitude: 22.28201715,
+	        longitude: 114.168545,
+	        zoom: 13
 	    }
     };
 
@@ -52,8 +52,8 @@ class MapBox extends Component {
 							    }}
 							>
 								<Marker 
-									latitude={22.28153}
-									longitude={114.15585} 
+									latitude={22.2793743}
+									longitude={114.18398} 
 									offsetLeft={-20} 
 									offsetTop={-40} 
 								>
