@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import Enter from '../../components/enter/enter.component';
 import Carousel from '../carousel/carousel.component';
@@ -12,14 +11,12 @@ import gallery5 from '../../assets/TFE_gallery_5.jpg';
 import gallery6 from '../../assets/TFE_gallery_6.jpg';
 import gallery7 from '../../assets/TFE_gallery_7.jpg';
 import gallery8 from '../../assets/TFE_gallery_8.jpg';
+import gallery9 from '../../assets/TFE_gallery_9.jpg';
 
 import './gallery.styles.scss';
 
 const Gallery = () => {
-	const isMobile = useMediaQuery({ maxWidth: 600 })
-	const images = isMobile
-		? [gallery10, gallery5, gallery6, gallery7, gallery8, gallery11]
-		: [gallery10, gallery5, gallery6, gallery7, gallery8, gallery11, gallery2, gallery4]
+	const images = [gallery10, gallery5, gallery6, gallery7, gallery8, gallery2, gallery11, gallery9, gallery4]
 
 	return (
 		<Enter lazy>
